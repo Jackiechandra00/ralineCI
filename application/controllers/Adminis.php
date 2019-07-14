@@ -79,7 +79,7 @@ class Adminis extends CI_Controller {
 
 			// var_dump([$nama, $idmapel, $nip]);die;
 
-			if($this->AdminModel->update_akun_spesifik($nama, $username, $jabatan)){
+			if($this->AdminModel->update_akun_spesifik($nama, $username, $jabatan, $id)){
 				redirect('Adminis/akun');
 			} else {
 				$this->session->set_userdata("pesanerror", "Gagal mengubah info akun");
