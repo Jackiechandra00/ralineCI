@@ -68,7 +68,7 @@ class AdminModel extends CI_Model
   public function update_akun_spesifik($nama, $username, $jabatan, $id){
     return $this->db->query("
       UPDATE
-        guru
+        user
       SET
         nama = '$nama',
         username = '$username',
@@ -79,9 +79,9 @@ class AdminModel extends CI_Model
   }
 
   public function delete_akun_spesifik($id){
-    $count = $this->db->where("id", $id)->get("akun")->num_rows();
+    $count = $this->db->where("id", $id)->get("user")->num_rows();
     if($count > 0){
-      $this->db->where('id', $id)->delete("akun");
+      $this->db->where('id', $id)->delete("user");
 
       if($this->db->affected_rows() < 1){
         return false;
