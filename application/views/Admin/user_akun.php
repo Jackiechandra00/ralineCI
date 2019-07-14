@@ -167,6 +167,9 @@
                         Jabatan
                       </th>
                       <th class="text-center">
+                        Password
+                      </th>
+                      <th class="text-center">
                         Aksi
                       </th>
                     </thead>
@@ -184,6 +187,9 @@
                         </td>
                         <td class="text-center">
                           <?= $akun->jabatan ?>  
+                        </td>
+                        <td class="text-center">
+                          <?= $akun->password ?>  
                         </td>
                         <td class="text-center">
                           <a class="btn" href="<?= base_url("Adminis/edit_akun?id=$akun->id") ?>">Edit</a>
