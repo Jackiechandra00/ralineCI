@@ -173,23 +173,25 @@
                       </th>
                     </thead>
                     <tbody>
+                      <?php foreach($siswas as $siswa): ?>
                       <tr>
                         <td>
-                          Jackie  
+                          <?= $siswa->nama ?>  
                         </td>
                         <td>
-                          171402004
+                          <?= $siswa->nis ?>
                         </td>
                         <td>
-                         99999999999
+                          <?= $siswa->nisn ?>
                         </td>
                         <td >
-                          XIIA
+                          <?= $siswa->kelas ?>
                         </td>
                        <td class="text-center">
                        <button class="btn" type="submit">Edit</button>&nbsp;&nbsp;<button class="btn" type="submit">Hapus</button>
                         </td>
                       </tr>
+                      <?php endforeach; ?>
                       
                     </tbody>
                   </table>

@@ -20,6 +20,10 @@ class AdminModel extends CI_Model
     ")->result();
   }
 
+  public function get_siswa(){
+    return $this->db->get("siswa")->result();
+  }
+
   public function get_guru_spesifik($nip){
     return $this->db->query("
       SELECT g.nama, g.nip, g.id_mapel, m.mapel

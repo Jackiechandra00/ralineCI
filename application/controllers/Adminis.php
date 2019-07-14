@@ -34,7 +34,10 @@ class Adminis extends CI_Controller {
 
 	public function daftar_siswa()
 	{
-		$this->load->view('Admin/map');
+		$data = [
+			"siswas" => $this->AdminModel->get_siswa()
+		];
+		$this->load->view('Admin/map', $data);
 	}
 
 	public function akun()
