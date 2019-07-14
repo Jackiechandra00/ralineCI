@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url("assets/img/apple-icon.png")?>">
-  <link rel="icon" type="image/png" href="<?php base_url("assets/img/favicon.png")?>">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     RALINE
@@ -14,10 +14,10 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
-  <link href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>" rel="stylesheet" />
-  <link href="<?php echo base_url("assets/css/now-ui-dashboard.css"); ?>" rel="stylesheet" />
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/now-ui-dashboard.css?v=1.3.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="<?php echo base_url("assets/demo/demo.css")?>" rel="stylesheet" />
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -36,19 +36,19 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-                  <li>
-            <a href="<?php echo base_url("Adminis/admin"); ?>">
+          <li>
+            <a href="<?php echo base_url("Adminis/Admin"); ?>">
               <i class="now-ui-icons users_circle-08"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="<?php echo base_url("Adminis/daftar_guru"); ?>">
               <i class="now-ui-icons business_badge"></i>
               <p>Guru</p>
             </a>
           </li>
-          <li  class="active">
+          <li>
             <a href="<?php echo base_url("Adminis/daftar_siswa"); ?>">
               <i class="now-ui-icons education_hat"></i>
               <p>Siswa</p>
@@ -66,7 +66,6 @@
               <p>Keluar</p>
             </a>
           </li>
-
         </ul>
       </div>
     </div>
@@ -82,7 +81,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">SISWA</a>
+            <a class="navbar-brand" href="#pablo">Guru</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -142,60 +141,64 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Daftar Siswa</h5>
-                <a href="<?php echo base_url("Adminis/tambah_siswa")?>"><button class="btn btn-primary" type="submit">Tambah Siswa</button>
-             </a>
+                <h5 class="title">Tambah Guru</h5>
+                <?php if($this->session->flashdata('pesanerror') != ""): ?>
+                  <p class="alert alert-warning"><?= $this->session->flashdata('pesanerror') ?></p>
+                <?php endif; ?>
              </div>
-  <br>
       <div class="content">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-8">
             <div class="card">
-
+            
               <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Nama
-                      </th>
-                      <th>
-                        NIS
-                      </th>
-                      <th>
-                        NISN
-                      </th>
-                      <th>
-                        Kelas
-                      </th>
-                      <th class="text-center">
-                        Aksi
-                      </th>
-                    </thead>
-                    <tbody>
-                      <?php foreach($siswas as $siswa): ?>
-                      <tr>
-                        <td>
-                          <?= $siswa->nama ?>  
-                        </td>
-                        <td>
-                          <?= $siswa->nis ?>
-                        </td>
-                        <td>
-                          <?= $siswa->nisn ?>
-                        </td>
-                        <td >
-                          <?= $siswa->kelas ?>
-                        </td>
-                       <td class="text-center">
-                       <a class="btn" href="<?= base_url("Adminis/edit_siswa?nis=$siswa->nis") ?>">Edit</a>
-                       <a class="btn" href="<?= base_url("Adminis/hapus_siswa?nis=$siswa->nis") ?>">Hapus</a>
-                        </td>
-                      </tr>
-                      <?php endforeach; ?>
-                      
-                    </tbody>
-                  </table>
+                <form method="POST" action="">
+                  <div class="row">
+                    <div class="col-md-8 pr-1">
+                      <div class="form-group">
+                        <label>Nama</label>
+                        <input type="text" class="form-control" placeholder="Nama" name="nama" value="<?= $siswa->nama ?>" required autofocus>
+                      </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-md-8 pr-1">
+                      <div class="form-group">
+                        <label>NIS</label>
+                        <input type="text" class="form-control" placeholder="NIS" name="nis_x" value="<?= $siswa->nis ?>" readonly>
+                      </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-md-8 pr-1">
+                      <div class="form-group">
+                        <label>NISN</label>
+                        <input type="text" class="form-control" placeholder="NISN" name="nisn_x" value="<?= $siswa->nisn ?>" readonly>
+                      </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    <div class="col-md-8 pr-1">
+                      <div class="form-group">
+                        <label>Kelas</label>
+                        <select class="form-control custom-select" name="kelas" readonly>
+                          <option value="<?= $siswa->kelas ?>"><?= strtoupper($siswa->kelas) ?></option>
+                          <?php foreach($kelass as $kelas): ?>
+                            <option value="<?= $kelas->kelas ?>"><?= strtoupper($kelas->kelas) ?></option>
+                          <?php endforeach; ?>
+                        </select>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="card-header">
+                <input class="btn btn-primary" name="editSiswa" value="Simpan" type="submit">
+                </p>
+              </div>
+             </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
                 </div>
               </div>
             </div>
@@ -203,7 +206,7 @@
           
       
   <!--   Core JS Files   -->
-<script src="<?php echo base_url("assets/js/core/jquery.min.js")?>"></script>
+   <script src="<?php echo base_url("assets/js/core/jquery.min.js")?>"></script>
   <script src="<?php echo base_url("assets/js/core/popper.min.js")?>"></script>
   <script src="<?php echo base_url("assets/js/core/bootstrap.min.js")?>"></script>
   <script src="<?php echo base_url("assets/js/plugins/perfect-scrollbar.jquery.min.js")?>"></script>

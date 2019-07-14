@@ -24,6 +24,43 @@ class AdminModel extends CI_Model
     return $this->db->get("siswa")->result();
   }
 
+  public function get_kelas(){
+    return $this->db->select("kelas")->group_by("kelas")->get("siswa")->result();
+  }
+
+  public function get_akun(){
+    return $this->db->get("user")->result();
+  }
+
+  public function get_siswa_spesifik($nis){
+    return $this->db->where('nis', $nis)->get("siswa")->row();
+  }
+
+  public function update_siswa_spesifik($nama, $nis_x, $nisn_x, $kelas){
+    return $this->db->query("
+      UPDATE
+        siswa
+      SET
+        nama = '$nama'
+      WHERE
+        nis = $nis_x
+    ");
+  }
+
+  public function tambah_siswa_spesifik($nama, $username, $password, $jabatan){
+    $count = $this->db->where("username", $username)->get("user")->num_rows();
+    if($count > 0){
+      return false;
+    } else {
+      return $this->db->insert("user", [
+        'nama' => $nama,
+        'username' => $username,
+        'password' => password_hash($password, PASSWORD_DEFAULT),
+        'jabatan' => $jabatan
+      ]);
+    }
+  }
+
   public function get_guru_spesifik($nip){
     return $this->db->query("
       SELECT g.nama, g.nip, g.id_mapel, m.mapel

@@ -155,10 +155,10 @@
                   <table class="table">
                     <thead class=" text-primary">
                       <th class="text-center">
-                        Username
+                        ID
                       </th>
-                      <th>
-                        Password
+                      <th class="text-center">
+                        Username
                       </th>
                       <th class="text-center">
                         Nama
@@ -171,23 +171,25 @@
                       </th>
                     </thead>
                     <tbody>
+                      <?php foreach($akuns as $akun): ?>
                       <tr>
                         <td class="text-center">
-                          Jackie  
+                          <?= $akun->id ?>  
                         </td>
                         <td class="text-center">
-                          Jackie123
+                          <?= $akun->username ?>  
                         </td>
                         <td class="text-center">
-                         Jackie Chandra
+                          <?= $akun->nama ?>  
                         </td>
                         <td class="text-center">
-                          Guru
+                          <?= $akun->jabatan ?>  
                         </td>
-                       <td class="text-center">
-                       <button class="btn" type="submit">Edit</button>&nbsp;&nbsp;<button class="btn" type="submit">Hapus</button>
+                        <td class="text-center">
+                          <a class="btn" href="<?= base_url("Adminis/edit_akun?id=$akun->id") ?>">Edit</a>
                         </td>
                       </tr>
+                      <?php endforeach; ?>
                       
                     </tbody>
                   </table>

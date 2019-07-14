@@ -42,17 +42,59 @@ class Adminis extends CI_Controller {
 
 	public function akun()
 	{
-		$this->load->view('admin/user_akun');
+		$data = [
+			"akuns" => $this->AdminModel->get_akun()
+		];
+		$this->load->view('admin/user_akun', $data);
 	}
 	
 	public function tambah_akun()
 	{
-		$this->load->view('Admin/tambah_akun');
+		if(isset($_POST['tambahAkun'])){
+			$nama = $this->input->post('nama');
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+			$jabatan = $this->input->post('jabatan');
+
+			if($this->AdminModel->tambah_akun_spesifik($nama, $username, $password, $jabatan)){
+				redirect('Adminis/akun');
+			} else {
+				$this->session->set_userdata("pesanerror", "Gagal menambah guru");
+				redirect("Adminis/akun");
+			}
+		}
+		else
+		{
+			$this->load->view('admin/tambah_akun');
+		}
 	}
 
 	public function tambah_siswa()
 	{
-		$this->load->view('Admin/tambah_siswa');
+		if(isset($_POST['editSiswa'])){
+			$nama = $this->input->post('nama');
+			$idmapel = $this->input->post('idmapel');
+			$nip = $this->input->post('nip_x');
+
+			// var_dump([$nama, $idmapel, $nip]);die;
+
+			if($this->AdminModel->update_guru_spesifik($nama, $nip, $idmapel)){
+				redirect('Adminis/daftar_guru');
+			} else {
+				$this->session->set_userdata("pesanerror", "Gagal menambah guru");
+				redirect("Adminis/tambah_siswaa");
+			}
+		}
+		else
+		{
+			$nis = $this->input->get('nis');
+			$data = [
+				"siswa" => $this->AdminModel->get_siswa_spesifik($nis),
+				"kelass" => $this->AdminModel->get_kelas()
+			];
+			// var_dump($data["guru"]);die;
+			$this->load->view('admin/edit_siswa', $data);
+		}
 	}
 
 	public function tambah_guru()
@@ -75,6 +117,33 @@ class Adminis extends CI_Controller {
 				"mapels" => $this->AdminModel->get_mapel()
 			];
 			$this->load->view('admin/tambah_guru', $data);
+		}
+	}
+
+	public function edit_siswa(){
+		if(isset($_POST['editSiswa'])){
+			$nama = $this->input->post('nama');
+			$nis = $this->input->post('nis_x');
+			$nisn = $this->input->post('nisn_x');
+			$kelas = $this->input->post('kelas');
+
+			// var_dump([$nama, $idmapel, $nip]);die;
+
+			if($this->AdminModel->update_siswa_spesifik($nama, $nis, $nisn, $kelas)){
+				redirect('Adminis/daftar_siswa');
+			} else {
+				$this->session->set_userdata("pesanerror", "Gagal mengubah informasi siswa.");
+				redirect("Adminis/edit_siswa?nis=$nis");
+			}
+		}
+		else
+		{
+			$nis = $this->input->get('nis');
+			$data = [
+				"siswa" => $this->AdminModel->get_siswa_spesifik($nis),
+				"kelass" => $this->AdminModel->get_kelas()
+			];
+			$this->load->view('admin/edit_siswa', $data);
 		}
 	}
 
