@@ -70,7 +70,31 @@ class Adminis extends CI_Controller {
 	}
 
 	public function edit_akun(){
-		
+		if(isset($_POST['editAkun'])){
+			$nama = $this->input->post('nama');
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+			$jabatan = $this->input->post('jabatan');
+			$id = $this->input->post('id_x');
+
+			// var_dump([$nama, $idmapel, $nip]);die;
+
+			if($this->AdminModel->update_akun_spesifik($nama, $username, $jabatan)){
+				redirect('Adminis/akun');
+			} else {
+				$this->session->set_userdata("pesanerror", "Gagal mengubah info akun");
+				redirect("Adminis/tambah_akun");
+			}
+		}
+		else
+		{
+			$id = $this->input->get('id');
+			$data = [
+				"akun" => $this->AdminModel->get_akun_spesifik($id)
+			];
+			// var_dump($data["guru"]);die;
+			$this->load->view('admin/edit_akun', $data);
+		}
 	}
 
 	public function tambah_siswa()
@@ -86,7 +110,7 @@ class Adminis extends CI_Controller {
 				redirect('Adminis/daftar_guru');
 			} else {
 				$this->session->set_userdata("pesanerror", "Gagal menambah guru");
-				redirect("Adminis/tambah_siswaa");
+				redirect("Adminis/tambah_siswa");
 			}
 		}
 		else

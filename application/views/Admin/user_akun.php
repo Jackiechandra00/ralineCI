@@ -187,6 +187,7 @@
                         </td>
                         <td class="text-center">
                           <a class="btn" href="<?= base_url("Adminis/edit_akun?id=$akun->id") ?>">Edit</a>
+                          <a class="btn" href="<?= base_url("Adminis/hapus_akun?id=$akun->id") ?>">Hapus</a>
                         </td>
                       </tr>
                       <?php endforeach; ?>

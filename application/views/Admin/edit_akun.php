@@ -143,7 +143,7 @@
               <div class="card-header">
                 <h5 class="title">Tambah Guru</h5>
                 <?php if($this->session->flashdata('pesanerror') != ""): ?>
-                  <p class="alert alert-warning"><?= $this->session->flashdata('pesanerror') ?></p>
+                  <p class="alert alert-warning"><?= var_dump($this->session->flashdata('pesanerror')) ?></p>
                 <?php endif; ?>
              </div>
       <div class="content">
@@ -156,34 +156,34 @@
                   <div class="row">
                     <div class="col-md-8 pr-1">
                       <div class="form-group">
+                        <label>Username</label>
+                        <input type="hidden" name="id_x" value="<?= $akun->id ?>">
+                        <input type="text" class="form-control" placeholder="Username" name="username">
+                      </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-md-8 pr-1">
+                      <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" class="form-control" placeholder="nama" name="nama">
+                        <input type="number" class="form-control" placeholder="Nama" name="nama">
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="col-md-8 pr-1">
                       <div class="form-group">
-                        <label>NIP</label>
-                        <input type="number" class="form-control" placeholder="NIP" name="nip">
-                      </div>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    
-                    <div class="col-md-8 pr-1">
-                      <div class="form-group">
-                        <label>Mapel</label>
-                        <select class="form-control custom-select" name="idmapel" required>
-                          <option value="">Pilih Mapel</option>
-                          <?php foreach($mapels as $mapel): ?>
-                            <option value="<?= $mapel->id_mapel ?>"><?= strtoupper($mapel->mapel) ?></option>
-                          <?php endforeach; ?>
+                        <label>Jabatan</label>
+                        <select class="form-control custom-select" name="jabatan" required>
+                          <option value="">Pilih Jabatan</option>
+                            <option value="<?= $akun->jabatan ?>"><?= $akun->jabatan ?></option>
+                            <option value="admin">Admin</option>
+                            <option value="Guru">Guru</option>
                         </select>
                       </div>
                     </div>
                 </div>
 
                 <div class="card-header">
-                <input class="btn btn-primary" name="tambahGuru" value="Simpan" type="submit">
+                <input class="btn btn-primary" name="editAkun" value="Simpan" type="submit">
                 </p>
               </div>
              </form>

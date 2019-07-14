@@ -143,7 +143,7 @@
               <div class="card-header">
                 <h5 class="title">Tambah Guru</h5>
                 <?php if($this->session->flashdata('pesanerror') != ""): ?>
-                  <p class="alert alert-warning"><?= var_dump($this->session->flashdata('pesanerror')) ?></p>
+                  <p class="alert alert-warning"><?= $this->session->flashdata('pesanerror') ?></p>
                 <?php endif; ?>
              </div>
       <div class="content">

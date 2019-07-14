@@ -47,6 +47,10 @@ class AdminModel extends CI_Model
     ");
   }
 
+  public function get_akun_spesifik($id){
+    return $this->db->where('id', $id)->get("user")->row();
+  }
+
   public function tambah_akun_spesifik($nama, $username, $password, $jabatan){
     $count = $this->db->where("username", $username)->get("user")->num_rows();
     if($count > 0){
@@ -58,6 +62,34 @@ class AdminModel extends CI_Model
         'password' => password_hash($password, PASSWORD_DEFAULT),
         'jabatan' => $jabatan
       ]);
+    }
+  }
+
+  public function update_akun_spesifik($nama, $username, $jabatan, $id){
+    return $this->db->query("
+      UPDATE
+        guru
+      SET
+        nama = '$nama',
+        username = '$username',
+        'jabatan' = '$jabatan'
+      WHERE
+        id = '$id'
+    ");
+  }
+
+  public function delete_akun_spesifik($id){
+    $count = $this->db->where("id", $id)->get("akun")->num_rows();
+    if($count > 0){
+      $this->db->where('id', $id)->delete("akun");
+
+      if($this->db->affected_rows() < 1){
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
     }
   }
 
