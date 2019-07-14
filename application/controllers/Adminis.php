@@ -69,6 +69,10 @@ class Adminis extends CI_Controller {
 		}
 	}
 
+	public function edit_akun(){
+		
+	}
+
 	public function tambah_siswa()
 	{
 		if(isset($_POST['editSiswa'])){

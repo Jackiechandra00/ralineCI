@@ -47,7 +47,7 @@ class AdminModel extends CI_Model
     ");
   }
 
-  public function tambah_siswa_spesifik($nama, $username, $password, $jabatan){
+  public function tambah_akun_spesifik($nama, $username, $password, $jabatan){
     $count = $this->db->where("username", $username)->get("user")->num_rows();
     if($count > 0){
       return false;
