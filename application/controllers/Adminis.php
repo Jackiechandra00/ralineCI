@@ -97,6 +97,16 @@ class Adminis extends CI_Controller {
 		}
 	}
 
+	public function hapus_akun(){
+		$id = $this->input->get('id');
+		if($this->AdminModel->delete_akun_spesifik($id)){
+			redirect("Adminis/akun");
+		} else {
+			$this->session->flashdata("pesanerror", "Gagal menghapus akun.");
+			redirect("Adminis/akun");
+		}
+	}
+
 	public function tambah_siswa()
 	{
 		if(isset($_POST['editSiswa'])){

@@ -72,7 +72,7 @@ class AdminModel extends CI_Model
       SET
         nama = '$nama',
         username = '$username',
-        'jabatan' = '$jabatan'
+        jabatan = '$jabatan'
       WHERE
         id = '$id'
     ");
