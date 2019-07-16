@@ -102,11 +102,26 @@ class TeacherModel extends CI_Model
     }
   }
 
+  public function input_ekskul($nis, $deskripsi, $jenis_ekskul){
+    $count = $this->db->where("nis", $nis)->get("ekstra")->num_rows();
+    if($count > 0){
+      return $this->db->where("nis", $nis)->update("ekstra", [
+        "deskripsi" => $deksripsi,
+        "jenis_ekstra" => $jenis_ekskul
+      ]);
+    }
+    else {
+      return $this->db->insert("ekstra", [
+        "deskripsi" => $deskripsi,
+        "jenis_ekstra" => $jenis_ekskul
+      ]);
+    }
+  }
+
   public function input_prestasi($nis, $kegiatan, $keterangan, $ck){
     $count = $this->db->where("nis", $nis)->get("prestasi")->num_rows();
     if($count > 0){
       return $this->db->where("nis", $nis)->update("prestasi", [
-        "nis" => $nis,
         "kegiatan" => $kegiatan,
         "keterangan" => $keterangan,
         "catatan_khusus" => $ck

@@ -138,7 +138,7 @@ class Teacher extends CI_Controller {
 				redirect("Teacher/lihat_nilai?nis=$nis");
 			} else {
 				$this->session->set_flashdata('pesanerror', 'Gagal menambahkan nilai.');
-				redirect("err");
+				redirect("Teacher/input_nilai?nis=$nis");
 			}
 		}
 		else {
@@ -228,7 +228,7 @@ class Teacher extends CI_Controller {
 	public function input_prestasi()
 	{
 		$this->load->model('TeacherModel');
-		
+
 		if(isset($_POST["addPrestasi"])){
 			$nis = $this->input->post("nis_x");
 			$keterangan = $this->input->post("keterangan");
@@ -238,6 +238,7 @@ class Teacher extends CI_Controller {
 			if($this->TeacherModel->input_prestasi($nis, $kegiatan, $keterangan, $ck)){
 				redirect("Teacher/prestasi");
 			} else {
+				$this->session->flashdata('pesanerror', 'Gagal menginput prestasi.');
 				redirect("Teacher/input_prestasi?nis=$nis");
 			}
 		} else {
@@ -263,6 +264,26 @@ class Teacher extends CI_Controller {
 	public function input_ekskul()
 	{
 
-		$this->load->view('guru/input_ekskul');
+		$this->load->model('TeacherModel');
+		
+		if(isset($_POST["addPrestasi"])){
+			$nis = $this->input->post("nis_x");
+			$deskripsi = $this->input->post("deskripsi");
+			$jenis_ekskul = $this->input->post("jenis_ekstra");
+
+			if($this->TeacherModel->input_ekskul($nis, $deskripsi, $jenis_ekskul)){
+				redirect("Teacher/ekskul");
+			} else {
+				$this->session->flashdata('pesanerror', 'Gagal menginput ekskul.');
+				redirect("Teacher/input_ekskul?nis=$nis");
+			}
+		} else {
+
+			$nis = $this->input->get("nis");
+			$data = [
+				"siswa" => $this->TeacherModel->get_siswa_spesifik($nis)
+			];
+			$this->load->view('guru/input_ekskul', $data);
+		}
 	}	
 }

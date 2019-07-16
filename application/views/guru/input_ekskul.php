@@ -84,13 +84,13 @@
               <p>Catatan</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="<?php echo base_url("Teacher/prestasi"); ?>">
               <i class="now-ui-icons business_bulb-63"></i>
               <p>Prestasi</p>
             </a>
           </li>
-          <li class="active">
+          <li>
             <a href="<?php echo base_url("Teacher/ekskul"); ?>">
               <i class="now-ui-icons  design_palette"></i>
               <p>Ekskul</p>
@@ -194,45 +194,47 @@
                     <div class="col-md-8 pr-1">
                       <div class="form-group">
                         <label>Nama</label> 
-                        <input type="text" class="form-control" placeholder="nama" name="nama" readonly>
+                        <input type="text" class="form-control" value="<?= $siswa->nama ?>" readonly>
+                        <input type="hidden" name="nis_x" value="<?= $siswa->nis ?>">
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="col-md-8 pr-1">
                       <div class="form-group">
                         <label>Kelas</label>
-                        <input type="text" class="form-control" placeholder="Kelas" name="kelas" readonly>
+                        <input type="text" class="form-control" value="<?= $siswa->kelas ?>" readonly>
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="col-md-8 pr-1">
                       <div class="form-group">
-                        <label>Kegiatan</label>
-                        <input type="text" class="form-control" placeholder="catatan" name="ekstrakulikuler" required>
-
+                        <label>Deskripsi Ekskul</label>
+                        <input type="text" class="form-control" placeholder="Deskripsi Ekskul" name="deskripsi" required>
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="col-md-8 pr-1">
                       <div class="form-group">
-                        <label>Nilai</label>
-                        <input type="text" class="form-control" placeholder="catatan" name="aktif" required>
-
-                      </div>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="col-md-8 pr-1">
-                      <div class="form-group">
-                        <label>Deskripsi</label>
-                        <input type="text" class="form-control" placeholder="catatan" name="alpha" required>
-
+                        <label>Jenis Ekstrakurikuler</label>
+                        <select class="custom-select form-control" name="jenis_ekstra" required>
+                          <option value="">Pilih Ekstrakulikuler</option>
+                            <option value="TATA BOGA">TATA BOGA</option>
+                            <option value="RENANG">RENANG</option>
+                            <option value="ARABIC CLUB">ARABIC CLUB</option>
+                            <option value="TAKLIM">TAKLIM</option>
+                            <option value="JURNALISTIK">JURNALISTIK</option>
+                            <option value="SAINS CLUB">SAINS CLUB</option>
+                            <option value="BELADIRI">BELADIRI</option>
+                            <option value="FUTSAL">FUTSAL</option>
+                            <option value="PRAMUKA">PRAMUKA</option>
+                        </select>
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                    
                 </div>
                 <div class="card-footer">
-                  <input class="btn btn-primary" type="submit" name="tambahAbsen" value="Simpan">
+                  <input class="btn btn-primary" type="submit" name="addEkskul" value="Simpan">
                 </div>
               </form>
               </div>
