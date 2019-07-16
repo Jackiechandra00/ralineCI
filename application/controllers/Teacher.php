@@ -199,5 +199,51 @@ class Teacher extends CI_Controller {
 		$this->load->view('guru/daftar_guru', $data);
 	}
 
-	
+	public function catatan()
+	{
+		$this->load->model("TeacherModel");
+
+		$data = [
+			"siswas" => $this->TeacherModel->get_siswa()
+		];
+		$this->load->view('guru/catatan', $data);
+	}
+
+	public function input_catatan()
+	{
+
+		$this->load->view('guru/input_catatan');
+	}
+
+	public function prestasi()
+	{
+		$this->load->model("TeacherModel");
+
+		$data = [
+			"siswas" => $this->TeacherModel->get_siswa()
+		];
+		$this->load->view('guru/prestasi', $data);
+	}
+
+	public function input_prestasi()
+	{
+
+		$this->load->view('guru/input_prestasi');
+	}	
+
+	public function ekskul()
+	{
+		$this->load->model("TeacherModel");
+
+		$data = [
+			"siswas" => $this->TeacherModel->get_siswa()
+		];
+		$this->load->view('guru/ekskul', $data);
+	}
+
+	public function input_ekskul()
+	{
+
+		$this->load->view('guru/input_ekskul');
+	}	
 }
