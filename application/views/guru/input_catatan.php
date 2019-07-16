@@ -194,7 +194,7 @@
                     <div class="col-md-8 pr-1">
                       <div class="form-group">
                         <label>Nama</label> 
-                        <input type="text" class="form-control" placeholder="nama" readonly>
+                        <input type="text" class="form-control" placeholder="Nama" readonly>
                         <input type="hidden" name="nis_x" value="<?= $siswa->nis ?>">
                       </div>
                     </div>

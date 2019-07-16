@@ -103,15 +103,15 @@ class TeacherModel extends CI_Model
   }
 
   public function input_ekskul($nis, $deskripsi, $jenis_ekskul){
-    $count = $this->db->where("nis", $nis)->get("ekstra")->num_rows();
+    $count = $this->db->where("nis", $nis)->get("extra")->num_rows();
     if($count > 0){
-      return $this->db->where("nis", $nis)->update("ekstra", [
+      return $this->db->where("nis", $nis)->update("extra", [
         "deskripsi" => $deksripsi,
         "jenis_ekstra" => $jenis_ekskul
       ]);
     }
     else {
-      return $this->db->insert("ekstra", [
+      return $this->db->insert("extra", [
         "deskripsi" => $deskripsi,
         "jenis_ekstra" => $jenis_ekskul
       ]);
@@ -147,7 +147,7 @@ class TeacherModel extends CI_Model
     $count = $this->db->where("nis", $nis)->get("catatan_walikelas")->num_rows();
     $count = $this->db->query(
       "
-      SELECT * FROM catatan_walikelas WHERE nis = '$nis' AND tahun_akademik LIKE 
+      SELECT * FROM catatan_walikelas WHERE nis = '$nis' AND tahun_akademik LIKE '%$tahun%'
       "
     )->num_rows();
 
