@@ -179,9 +179,9 @@
             <div class="card">
               <div class="card-header">
                 <h5 class="title">Input Prestasi</h5>
-                <!-- <?php if($this->session->flashdata('pesanerror') != ""): ?>
-                  <p class="alert alert-warning"><?= var_dump($this->session->flashdata('pesanerror')) ?></p>
-                <?php endif; ?> -->
+                <?php if($this->session->flashdata('pesanerror') != ""): ?>
+                  <p class="alert alert-warning"><?= $this->session->flashdata('pesanerror') ?></p>
+                <?php endif; ?>
               </div>
              <div class="content">
         <div class="row">

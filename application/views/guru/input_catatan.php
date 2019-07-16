@@ -179,9 +179,9 @@
             <div class="card">
               <div class="card-header">
                 <h5 class="title">Input Catatan</h5>
-                <!-- <?php if($this->session->flashdata('pesanerror') != ""): ?>
-                  <p class="alert alert-warning"><?= var_dump($this->session->flashdata('pesanerror')) ?></p>
-                <?php endif; ?> -->
+                <?php if($this->session->flashdata('pesanerror') != ""): ?>
+                  <p class="alert alert-warning"><?= $this->session->flashdata('pesanerror') ?></p>
+                <?php endif; ?>
               </div>
              <div class="content">
         <div class="row">
@@ -194,21 +194,22 @@
                     <div class="col-md-8 pr-1">
                       <div class="form-group">
                         <label>Nama</label> 
-                        <input type="text" class="form-control" placeholder="nama" name="nama" readonly>
+                        <input type="text" class="form-control" placeholder="nama" readonly>
+                        <input type="hidden" name="nis_x" value="<?= $siswa->nis ?>">
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="col-md-8 pr-1">
                       <div class="form-group">
                         <label>Kelas</label>
-                        <input type="text" class="form-control" placeholder="Kelas" name="kelas" readonly>
+                        <input type="text" class="form-control" placeholder="Kelas" readonly>
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="col-md-8 pr-1">
                       <div class="form-group">
                         <label>Catatan</label>
-                        <input type="text" class="form-control" placeholder="catatan" name="alpha" required>
+                        <input type="text" class="form-control" placeholder="catatan" name="catatan" required>
 
                       </div>
                     </div>
@@ -216,7 +217,7 @@
                    
                 </div>
                 <div class="card-footer">
-                  <input class="btn btn-primary" type="submit" name="tambahAbsen" value="Simpan">
+                  <input class="btn btn-primary" type="submit" name="addCatatan" value="Simpan">
                 </div>
               </form>
               </div>

@@ -118,6 +118,54 @@ class TeacherModel extends CI_Model
     }
   }
 
+  public function input_catatan($nis, $keterangan){
+    $tahun_akademik = $this->db->query("SELECT tahun_akademik FROM catatan_walikelas LIMIT 1")->row();
+    $tahun_akademik = $tahun_akademik->tahun_akademik;
+
+    $last_id = $this->db->query("SELECT id_raport FROM catatan_walikelas ORDER BY id_raport DESC LIMIT 1")->row();
+    $last_id = $last_id->id_raport;
+
+    $kelas = $this->db->where("nis", $nis)->get("siswa")->row();
+    $month = date("n", time());
+    $year = date("Y", time());
+    $kelas = $kelas->kelas;
+
+    if($month < 7){
+      $tahun = ($year-1)."/$year";
+    } else {
+      $tahun = "$year/".($year+1);
+    }
+
+    if(strpos($kelas, 'X ') !== false){
+      $semester = ($month < 7 ? "1" : "2");
+    } else if (strpos($kelas, 'XI ') !== false) {
+      $semester = ($month < 7 ? "3" : "4");
+    } else if(strpos($kelas, 'XII ') !== false) {
+      $semester = ($month < 7 ? "5" : "6");
+    }
+
+    $count = $this->db->where("nis", $nis)->get("catatan_walikelas")->num_rows();
+    $count = $this->db->query(
+      "
+      SELECT * FROM catatan_walikelas WHERE nis = '$nis' AND tahun_akademik LIKE 
+      "
+    )->num_rows();
+
+    if($count > 0){
+      return $this->db->where("nis", $nis)->update("catatan_walikelas", [
+        "keterangan" => $keterangan
+      ]);
+    } else {
+      return $this->db->insert("catatan_walikelas", [
+        "nis" => $nis,
+        "id_raport" => $last_id,
+        "semester" => $semester,
+        "tahun_akademik" => $tahun_akademik,
+        "keterangan" => $keterangan
+      ]);
+    }
+  }
+
   public function input_prestasi($nis, $kegiatan, $keterangan, $ck){
     $count = $this->db->where("nis", $nis)->get("prestasi")->num_rows();
     if($count > 0){

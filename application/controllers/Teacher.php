@@ -211,8 +211,26 @@ class Teacher extends CI_Controller {
 
 	public function input_catatan()
 	{
+		$this->load->model('TeacherModel');
 
-		$this->load->view('guru/input_catatan');
+		if(isset($_POST["addCatatan"])){
+			$nis = $this->input->post("nis_x");
+			$keterangan = $this->input->post("keterangan");
+
+			if($this->TeacherModel->input_catatan($nis, $keterangan)){
+				redirect("Teacher/catatan");
+			} else {
+				$this->session->flashdata('pesanerror', 'Gagal menginput prestasi.');
+				redirect("Teacher/input_catatan?nis=$nis");
+			}
+		} else {
+
+			$nis = $this->input->get("nis");
+			$data = [
+				"siswa" => $this->TeacherModel->get_siswa_spesifik($nis)
+			];
+			$this->load->view('guru/input_catatan', $data);
+		}
 	}
 
 	public function prestasi()
@@ -266,7 +284,7 @@ class Teacher extends CI_Controller {
 
 		$this->load->model('TeacherModel');
 		
-		if(isset($_POST["addPrestasi"])){
+		if(isset($_POST["addEkskul"])){
 			$nis = $this->input->post("nis_x");
 			$deskripsi = $this->input->post("deskripsi");
 			$jenis_ekskul = $this->input->post("jenis_ekstra");
