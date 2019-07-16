@@ -36,7 +36,7 @@
       </div>
         <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-                   <li>>
+                   <li>
             <a href="<?php echo base_url("dashboard"); ?>">
               <i class="now-ui-icons users_circle-08"></i>
               <p>Dashboard</p>
@@ -76,6 +76,24 @@
             <a href="<?php echo base_url("Teacher/daftar_guru"); ?>">
               <i class="now-ui-icons business_badge"></i>
               <p>Daftar Guru</p>
+            </a>
+          </li>
+           <li>
+            <a href="<?php echo base_url("Teacher/catatan"); ?>">
+              <i class="now-ui-icons education_agenda-bookmark"></i>
+              <p>Catatan</p>
+            </a>
+          </li>
+             <li>
+            <a href="<?php echo base_url("Teacher/prestasi"); ?>">
+              <i class="now-ui-icons business_bulb-63"></i>
+              <p>Prestasi</p>
+            </a>
+          </li>
+          <li>
+            <a href="<?php echo base_url("Teacher/ekskul"); ?>">
+              <i class="now-ui-icons  design_palette"></i>
+              <p>Ekskul</p>
             </a>
           </li>
           <li>
