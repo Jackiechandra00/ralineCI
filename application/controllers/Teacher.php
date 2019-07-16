@@ -227,8 +227,27 @@ class Teacher extends CI_Controller {
 
 	public function input_prestasi()
 	{
+		$this->load->model('TeacherModel');
+		
+		if(isset($_POST["addPrestasi"])){
+			$nis = $this->input->post("nis_x");
+			$keterangan = $this->input->post("keterangan");
+			$ck = $this->input->post("catatan_khusus");
+			$kegiatan = $this->input->post("kegiatan");
 
-		$this->load->view('guru/input_prestasi');
+			if($this->TeacherModel->input_prestasi($nis, $kegiatan, $keterangan, $ck)){
+				redirect("Teacher/prestasi");
+			} else {
+				redirect("Teacher/input_prestasi?nis=$nis");
+			}
+		} else {
+
+			$nis = $this->input->get("nis");
+			$data = [
+				"siswa" => $this->TeacherModel->get_siswa_spesifik($nis)
+			];
+			$this->load->view('guru/input_prestasi', $data);
+		}
 	}	
 
 	public function ekskul()
