@@ -218,7 +218,7 @@ class Teacher extends CI_Controller {
 			$keterangan = $this->input->post("keterangan");
 
 			if($this->TeacherModel->input_catatan($nis, $keterangan)){
-				redirect("Teacher/catatan");
+				redirect("Teacher/daftar_catatan");
 			} else {
 				$this->session->flashdata('pesanerror', 'Gagal menginput prestasi.');
 				redirect("Teacher/input_catatan?nis=$nis");
@@ -231,6 +231,44 @@ class Teacher extends CI_Controller {
 			];
 			$this->load->view('guru/input_catatan', $data);
 		}
+	}
+
+	public function edit_catatan()
+	{
+		$nis = $this->input->get("nis");
+		$this->load->model("TeacherModel");
+
+		if(isset($_POST["editCatatan"])){
+			$nis = $this->input->post('nis_x');
+			$id_raport = $this->input->post('id_raport');
+			$semester = $this->input->post('semester');
+			$tahun_akademik = $this->input->post('tahun_akademik');
+			$keterangan = $this->input->post('keterangan');
+			
+			if($this->TeacherModel->update_catatan_spesifik($nis, $keterangan)){
+				redirect("Teacher/daftar_catatan");
+			} else {
+				$this->session->flashdata('pesanerror', 'Gagal mengedit catatan.');
+				redirect("Teacher/edit_catatan?nis=$nis");
+			}
+		}
+		else
+		{
+			$data = [
+				"siswa" => $this->TeacherModel->get_siswa_spesifik($nis),
+				"catatan_walikelas" => $this->TeacherModel->get_catatan_spesifik($nis)
+			];
+			$this->load->view('guru/edit_catatan', $data);
+		}
+	}
+
+	public function daftar_catatan()
+	{
+		$this->load->model("TeacherModel");
+		$data = [
+			"catatans" => $this->TeacherModel->get_catatan_siswa()
+		];
+		$this->load->view('guru/daftar_catatan', $data);
 	}
 
 	public function prestasi()
@@ -254,7 +292,7 @@ class Teacher extends CI_Controller {
 			$kegiatan = $this->input->post("kegiatan");
 
 			if($this->TeacherModel->input_prestasi($nis, $kegiatan, $keterangan, $ck)){
-				redirect("Teacher/prestasi");
+				redirect("Teacher/daf tar_prestasi");
 			} else {
 				$this->session->flashdata('pesanerror', 'Gagal menginput prestasi.');
 				redirect("Teacher/input_prestasi?nis=$nis");
@@ -268,6 +306,44 @@ class Teacher extends CI_Controller {
 			$this->load->view('guru/input_prestasi', $data);
 		}
 	}	
+
+	public function edit_prestasi()
+	{
+		$nis = $this->input->get("nis");
+		$this->load->model("TeacherModel");
+
+		if(isset($_POST["editPrestasi"])){
+			$nis = $this->input->post('nis_x');
+			$kegiatan = $this->input->post('kegiatan');
+			$keterangan = $this->input->post('keterangan');
+			$catatan_khusus = $this->input->post('catatan_khusus');
+			
+			if($this->TeacherModel->update_prestasi_spesifik($nis ,$kegiatan ,$keterangan , $catatan_khusus)){
+				redirect("Teacher/daftar_prestasi");
+			} else {
+				$this->session->flashdata('pesanerror', 'Gagal mengedit catatan.');
+				redirect("Teacher/edit_prestasi?nis=$nis");
+			}
+		}
+		else
+		{
+			$data = [
+				"siswa" => $this->TeacherModel->get_siswa_spesifik($nis),
+				"prestasi" => $this->TeacherModel->get_prestasi_spesifik($nis)
+			];
+			$this->load->view('guru/edit_prestasi', $data);
+		}
+	}
+
+	public function daftar_prestasi()
+	{
+		$this->load->model("TeacherModel");
+		$data = [
+			"prestasii" => $this->TeacherModel->get_prestasi_siswa()
+		];
+		$this->load->view('guru/daftar_prestasi', $data);
+	}
+
 
 	public function ekskul()
 	{

@@ -109,17 +109,18 @@ class Adminis extends CI_Controller {
 
 	public function tambah_siswa()
 	{
-		if(isset($_POST['editSiswa'])){
+		if(isset($_POST['inputSiswa'])){
+			$nis = $this->input->post('nis');
+			$nisn = $this->input->post('nisn');
 			$nama = $this->input->post('nama');
-			$idmapel = $this->input->post('idmapel');
-			$nip = $this->input->post('nip_x');
+			$kelas = $this->input->post('kelas');
 
 			// var_dump([$nama, $idmapel, $nip]);die;
 
-			if($this->AdminModel->update_guru_spesifik($nama, $nip, $idmapel)){
-				redirect('Adminis/daftar_guru');
+			if($this->AdminModel->tambah_siswa_spesifik($nis, $nisn, $nama, $kelas)){
+				redirect('Adminis/daftar_siswa');
 			} else {
-				$this->session->set_userdata("pesanerror", "Gagal menambah guru");
+				$this->session->set_userdata("pesanerror", "Gagal menambah siswa");
 				redirect("Adminis/tambah_siswa");
 			}
 		}
@@ -131,7 +132,17 @@ class Adminis extends CI_Controller {
 				"kelass" => $this->AdminModel->get_kelas()
 			];
 			// var_dump($data["guru"]);die;
-			$this->load->view('admin/edit_siswa', $data);
+			$this->load->view('admin/tambah_siswa', $data);
+		}
+	}
+
+	public function hapus_siswa(){
+		$nis = $this->input->get('nis');
+		if($this->AdminModel->delete_siswa_spesifik($nis)){
+			redirect("Adminis/daftar_siswa");
+		} else {
+			$this->session->flashdata("pesanerror", "Gagal menghapus siswa.");
+			redirect("Adminis/daftar_siswa");
 		}
 	}
 
@@ -220,5 +231,20 @@ class Adminis extends CI_Controller {
 			$this->session->flashdata("pesanerror", "Gagal menghapus guru.");
 			redirect("Adminis/daftar_guru");
 		}
+	}
+
+	public function cetak_raport(){
+		$nis = $this->input->get("nis");
+		$data = [
+			"siswa" => $this->AdminModel->get_siswa_spesifik($nis),
+			"nilai" => $this->AdminModel->get_nilai_spesifik($nis),
+			"thn" => $this->AdminModel->get_tahun_akademik_spesifik($nis)
+		];
+		$this->load->view("admin/raport", $data);
+	}
+
+	public function test(){
+		$nis = $this->input->get("nis");
+		var_dump($this->AdminModel->get_nilai_spesifik($nis));
 	}
 }
