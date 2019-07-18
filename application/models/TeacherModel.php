@@ -40,6 +40,29 @@ class TeacherModel extends CI_Model
     ")->result();
   }
 
+  public function get_catatan_siswa(){
+    return $this->db->query("
+      SELECT
+        s.nama, s.kelas, c.keterangan, s.nis
+      FROM
+        siswa s, catatan_walikelas c
+      WHERE
+        c.nis = s.nis
+    ")->result();
+  }
+
+  public function get_prestasi_siswa(){
+    return $this->db->query("
+      SELECT
+        s.nama, s.kelas, p.kegiatan, p.keterangan, p.catatan_khusus, s.nis
+      FROM
+        siswa s, prestasi p
+      WHERE
+        p.nis = s.nis
+    ")->result();
+  }
+
+
   public function get_nilai_spesifik($nis, $idmapel){
     return $this->db->query("SELECT s.nis, n.id_mapel, s.nama, s.kelas, m.mapel, n.k3, n.k4, n.semester
           FROM siswa s, nilai n, mata_pelajaran m
@@ -106,14 +129,14 @@ class TeacherModel extends CI_Model
     $count = $this->db->where("nis", $nis)->get("extra")->num_rows();
     if($count > 0){
       return $this->db->where("nis", $nis)->update("extra", [
-        "deskripsi" => $deksripsi,
-        "jenis_ekstra" => $jenis_ekskul
+        "deskripsi_ex" => $deskripsi,
+        "jenis_extra" => $jenis_ekskul
       ]);
     }
     else {
       return $this->db->insert("extra", [
-        "deskripsi" => $deskripsi,
-        "jenis_ekstra" => $jenis_ekskul
+        "deskripsi_ex" => $deskripsi,
+        "jenis_extra" => $jenis_ekskul
       ]);
     }
   }
@@ -183,6 +206,37 @@ class TeacherModel extends CI_Model
         "catatan_khusus" => $ck
       ]);
     }
+  }
+
+  public function update_prestasi_spesifik($nis, $kegiatan, $keterangan, $catatan_khusus){
+    return $this->db->where('nis', $nis)
+      ->update("prestasi", [
+        'nis' => $nis,
+        'kegiatan' => $kegiatan,
+        'keterangan' => $keterangan,
+        'catatan_khusus' => $catatan_khusus
+        
+      ]
+    );
+  }
+
+
+
+  public function update_catatan_spesifik($nis, $keterangan){
+    return $this->db->where('nis', $nis)
+      ->update("catatan_walikelas", [
+        'nis' => $nis,
+        'keterangan' => $keterangan,
+      ]
+    );
+  }
+
+public function get_catatan_spesifik($nis){
+    return $this->db->where('nis', $nis)->get("catatan_walikelas")->row();
+  }
+
+  public function get_prestasi_spesifik($nis){
+    return $this->db->where('nis', $nis)->get("prestasi")->row();
   }
 
   public function get_absen_spesifik($nis){

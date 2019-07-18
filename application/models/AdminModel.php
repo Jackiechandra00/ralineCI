@@ -36,6 +36,15 @@ class AdminModel extends CI_Model
     return $this->db->where('nis', $nis)->get("siswa")->row();
   }
 
+  public function get_nilai_spesifik($nis){
+    // return $this->db->select("n.*")->where("n.nis", $nis)->get("nilai n")->result();
+    return $this->db->query("SELECT n.*, k3.*, k4.* FROM nilai n, deskripsik3 k3, deskripsik4 k4 WHERE n.nis='$nis' AND k3.nis = n.nis AND k4.nis = n.nis ORDER BY n.id_mapel ASC")->result_array();
+  }
+
+  public function get_tahun_akademik_spesifik($nis){
+    return $this->db->query("SELECT * FROM catatan_walikelas WHERE nis='$nis' ORDER BY id_raport DESC LIMIT 1")->row();
+  }
+
   public function update_siswa_spesifik($nama, $nis_x, $nisn_x, $kelas){
     return $this->db->query("
       UPDATE
@@ -45,6 +54,39 @@ class AdminModel extends CI_Model
       WHERE
         nis = $nis_x
     ");
+  }
+
+public function tambah_siswa_spesifik($nis, $nisn, $nama, $kelas){
+    $count = $this->db->where("nis", $nis)->get("siswa")->num_rows();
+    if($count > 0){
+      return false;
+
+    } else {
+    
+      return $this->db->insert("siswa", [
+        'nis' => $nis,
+        'nisn' => $nisn,
+        'nama' => $nama,
+        'kelas' => $kelas
+      ]);
+    }
+  }
+
+
+  public function delete_siswa_spesifik($nis){
+    $count = $this->db->where("nis", $nis)->get("siswa")->num_rows();
+    if($count > 0){
+      $this->db->where('nis', $nis)->delete("siswa");
+
+      if($this->db->affected_rows() < 1){
+       
+        return false;
+      } else {
+  return true;
+      }
+    } else {
+return false;
+    }
   }
 
   public function get_akun_spesifik($id){
