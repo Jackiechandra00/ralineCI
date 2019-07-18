@@ -118,7 +118,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">SISWA</a>
+            <a class="navbar-brand" href="#pablo">Catatan</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -178,7 +178,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Input Catatan</h5>
+                <h5 class="title">Edit Catatan</h5>
                 <?php if($this->session->flashdata('pesanerror') != ""): ?>
                   <p class="alert alert-warning"><?= $this->session->flashdata('pesanerror') ?></p>
                 <?php endif; ?>
@@ -195,7 +195,7 @@
                       <div class="form-group">
                         <label>Nama</label> 
                         <input type="text" class="form-control" placeholder="Nama" value="<?= $siswa->nama ?>" readonly>
-                         <input type="hidden" name="nis_x" value="<?= $siswa->nis ?>">
+                         <input type="hidden" name="nis_x" value="<?= $siswa->nis?>">
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -217,7 +217,7 @@
                    
                 </div>
                 <div class="card-footer">
-                  <input class="btn btn-primary" type="submit" name="addCatatan" value="Simpan">
+                  <input class="btn btn-primary" type="submit" name="editCatatan" value="Simpan">
                 </div>
               </form>
               </div>
