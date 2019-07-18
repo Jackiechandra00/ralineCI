@@ -189,7 +189,8 @@
                         </td>
                        <td class="text-center">
                        <a class="btn" href="<?= base_url("Adminis/edit_siswa?nis=$siswa->nis") ?>">Edit</a>
-                       <a class="btn" href="<?= base_url("Adminis/hapus_siswa?nis=$siswa->nis") ?>">Hapus</a>
+                       <a class="btn" style="color: white;" href="<?= base_url("Adminis/hapus_siswa?nis=$siswa->nis") ?>">Hapus</a>
+                        <a class="btn" style="color: white;" href="<?= base_url("Adminis/cetak_raport?nis=$siswa->nis") ?>">Export</a>
                         </td>
                       </tr>
                       <?php endforeach; ?>

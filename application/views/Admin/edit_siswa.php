@@ -42,13 +42,13 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="active">
+          <li>
             <a href="<?php echo base_url("Adminis/daftar_guru"); ?>">
               <i class="now-ui-icons business_badge"></i>
               <p>Guru</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="<?php echo base_url("Adminis/daftar_siswa"); ?>">
               <i class="now-ui-icons education_hat"></i>
               <p>Siswa</p>
