@@ -33,6 +33,43 @@ class Teacher extends CI_Controller {
 		$this->load->view('guru/daftar_nilai', $data);
 	}
 
+	public function daftar_ekskul()
+	{
+		$this->load->model('TeacherModel');
+		$data = [
+			'ekskull' => $this->TeacherModel->get_ekskul()
+		];
+		$this->load->view('guru/daftar_ekskul', $data);
+	}
+
+	public function edit_ekskul()
+	{
+		$nis = $this->input->get("nis");
+		$this->load->model("TeacherModel");
+
+		if(isset($_POST["editEkskul"])){
+			$nis = $this->input->post('nis_x');
+			$deskripsi_ex = $this->input->post('deskripsi_ex');
+			$jenis_extra = $this->input->post('jenis_extra');
+			$nilai_ex = $this->input->post('nilai_ex');
+
+
+			if($this->TeacherModel->update_ekskul_spesifik($nis, $deskripsi_ex, $jenis_extra, $nilai_ex)){
+				redirect("Teacher/daftar_ekskul");
+			} else {
+				$this->session->flashdata('pesanerror', 'Gagal mengedit Ekstra.');
+				redirect("Teacher/edit_ekskul?nis=$nis");
+			}
+		}
+		else
+		{
+			$data = [
+				"siswa" => $this->TeacherModel->get_siswa_spesifik($nis),
+				"ekstra" => $this->TeacherModel->get_ekskul_spesifik($nis)
+			];
+			$this->load->view('guru/edit_ekskul', $data);
+		}
+	}
 	// public function input_nilai()
 	// {
 	// 	$this->load->view('guru/map');
@@ -292,7 +329,7 @@ class Teacher extends CI_Controller {
 			$kegiatan = $this->input->post("kegiatan");
 
 			if($this->TeacherModel->input_prestasi($nis, $kegiatan, $keterangan, $ck)){
-				redirect("Teacher/daf tar_prestasi");
+				redirect("Teacher/daftar_prestasi");
 			} else {
 				$this->session->flashdata('pesanerror', 'Gagal menginput prestasi.');
 				redirect("Teacher/input_prestasi?nis=$nis");
@@ -364,9 +401,10 @@ class Teacher extends CI_Controller {
 			$nis = $this->input->post("nis_x");
 			$deskripsi = $this->input->post("deskripsi");
 			$jenis_ekskul = $this->input->post("jenis_ekstra");
+			$nilai_ex = $this->input->post('nilai_ex');
 
-			if($this->TeacherModel->input_ekskul($nis, $deskripsi, $jenis_ekskul)){
-				redirect("Teacher/ekskul");
+			if($this->TeacherModel->input_ekskul($nis, $deskripsi, $jenis_ekskul ,$nilai_ex)){
+				redirect("Teacher/daftar_ekskul");
 			} else {
 				$this->session->flashdata('pesanerror', 'Gagal menginput ekskul.');
 				redirect("Teacher/input_ekskul?nis=$nis");
@@ -380,4 +418,287 @@ class Teacher extends CI_Controller {
 			$this->load->view('guru/input_ekskul', $data);
 		}
 	}	
+
+	public function deskripsip()
+	{
+		$this->load->model("TeacherModel");
+
+		$data = [
+			"siswas" => $this->TeacherModel->get_siswa()
+		];
+		$this->load->view('guru/deskripsip', $data);
+	}
+
+	public function input_deskripsip()
+	{
+		$this->load->model('TeacherModel');
+
+		if(isset($_POST["addDeskripsip"])){
+			$nis = $this->input->post("nis_x");
+			$id_mapel = $this->input->post("mapel");
+			$deskripsi_k3 = $this->input->post("deskripsi_k3");
+
+			if($this->TeacherModel->insert_deskripsip_spesifik($nis, $id_mapel, $deskripsi_k3)){
+				redirect("Teacher/daftar_deskripsip");
+			} else {
+				$this->session->flashdata('pesanerror', 'Gagal menginput prestasi.');
+				redirect("Teacher/input_deskripsip?nis=$nis");
+			}
+		} else {
+
+			$nis = $this->input->get("nis");
+			$data = [
+				"deskripsik3" => $this->TeacherModel->get_siswa_spesifik($nis),
+				"mapels"=>$this->TeacherModel->get_mapel($nis),
+				"siswa"=>$this->TeacherModel->get_siswa_spesifik($nis)
+			];
+			$this->load->view('guru/input_deskripsip', $data);
+		}
+	}
+
+	public function edit_deskripsip()
+	{
+		$nis = $this->input->get("nis");
+		$this->load->model("TeacherModel");
+
+		if(isset($_POST["editDeskripsip"])){
+			$nis = $this->input->post('nis_x');
+			$id_mapel = $this->input->post("mapel");
+			$deskripsi_k3 = $this->input->post("deskripsi_k3");
+
+			if($this->TeacherModel->update_deskripsip_spesifik($nis, $id_mapel, $deskripsi_k3)){
+				redirect("Teacher/daftar_deskripsip");
+			} else {
+				$this->session->flashdata('pesanerror', 'Gagal mengedit Ekstra.');
+				redirect("Teacher/edit_deskripsip?nis=$nis");
+			}
+		}
+		else
+		{
+			$data = [
+				"deskripsik3" => $this->TeacherModel->get_siswa_spesifik($nis),
+				"siswa" => $this->TeacherModel->get_siswa_spesifik($nis),
+				"mapels"=>$this->TeacherModel->get_mapel($nis),
+				"ekstra" => $this->TeacherModel->get_deskripsip_spesifik($nis)
+			];
+			$this->load->view('guru/edit_deskripsip', $data);
+		}
+	}
+
+	public function daftar_deskripsip()
+	{
+		$this->load->model('TeacherModel');
+		$data = [
+			'deskripsik3'=>$this->TeacherModel->get_deskripsip(),
+			'siswas' => $this->TeacherModel->get_siswa()
+		];
+		$this->load->view('guru/daftar_deskripsip', $data);
+	}
+
+	public function hapus_deskripsip(){
+		$nis = $this->input->get('nis');
+		$idmapel = $this->input->get('id_mapel');
+		$deskripsi_k3=$this->input->get('deskripsi_k3');
+		$this->load->model('TeacherModel');
+		if($this->TeacherModel->hapus_deskripsip_spesifik($nis, $idmapel, $deskripsi_k3)){
+			redirect("Teacher/daftar_deskripsip?nis=$nis");
+		} else {
+			$this->session->set_flashdata('pesanerror', 'Gagal menghapus nilai.');
+			// var_dump($this->session->flashdata('pesanerror'));
+			redirect("Teacher/daftar_deskripsip?nis=$nis");
+		}
+	}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public function deskripsik()
+	{
+		$this->load->model("TeacherModel");
+
+		$data = [
+			"siswas" => $this->TeacherModel->get_siswa()
+		];
+		$this->load->view('guru/deskripsik', $data);
+	}
+
+	public function input_deskripsik()
+	{
+		$this->load->model('TeacherModel');
+
+		if(isset($_POST["addDeskripsik"])){
+			$nis = $this->input->post("nis_x");
+			$id_mapel = $this->input->post("mapel");
+			$deskripsi_k4 = $this->input->post("deskripsi_k4");
+
+			if($this->TeacherModel->insert_deskripsik_spesifik($nis, $id_mapel, $deskripsi_k4)){
+				redirect("Teacher/daftar_deskripsik");
+			} else {
+				$this->session->flashdata('pesanerror', 'Gagal menginput prestasi.');
+				redirect("Teacher/input_deskripsik?nis=$nis");
+			}
+		} else {
+
+			$nis = $this->input->get("nis");
+			$data = [
+				"deskripsik4" => $this->TeacherModel->get_siswa_spesifik($nis),
+				"mapels"=>$this->TeacherModel->get_mapel($nis),
+				"siswa"=>$this->TeacherModel->get_siswa_spesifik($nis)
+			];
+			$this->load->view('guru/input_deskripsik', $data);
+		}
+	}
+
+	public function edit_deskripsik()
+	{
+		$nis = $this->input->get("nis");
+		$this->load->model("TeacherModel");
+
+		if(isset($_POST["editDeskripsik"])){
+			$nis = $this->input->post('nis_x');
+			$id_mapel = $this->input->post("mapel");
+			$deskripsi_k4 = $this->input->post("deskripsi_k4");
+
+			if($this->TeacherModel->update_deskripsik_spesifik($nis, $id_mapel, $deskripsi_k4)){
+				redirect("Teacher/daftar_deskripsik");
+			} else {
+				$this->session->flashdata('pesanerror', 'Gagal mengedit Ekstra.');
+				redirect("Teacher/edit_deskripsik?nis=$nis");
+			}
+		}
+		else
+		{
+			$data = [
+				"deskripsik4" => $this->TeacherModel->get_siswa_spesifik($nis),
+				"siswa" => $this->TeacherModel->get_siswa_spesifik($nis),
+				"mapels"=>$this->TeacherModel->get_mapel($nis),
+				"ekstra" => $this->TeacherModel->get_deskripsik_spesifik($nis)
+			];
+			$this->load->view('guru/edit_deskripsik', $data);
+		}
+	}
+
+	public function daftar_deskripsik()
+	{
+		$this->load->model('TeacherModel');
+		$data = [
+			'deskripsik4'=>$this->TeacherModel->get_deskripsik(),
+			'siswas' => $this->TeacherModel->get_siswa()
+		];
+		$this->load->view('guru/daftar_deskripsik', $data);
+	}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function deskripsi_siswa()
+	{
+		$this->load->model("TeacherModel");
+
+		$data = [
+			"siswas" => $this->TeacherModel->get_siswa()
+		];
+		$this->load->view('guru/deskripsi_siswa', $data);
+	}
+
+	public function input_deskripsi_siswa()
+	{
+		$this->load->model('TeacherModel');
+
+		if(isset($_POST["addDeskripsiSiswa"])){
+			$nis = $this->input->post("nis_x");
+			$predikat_sosial = $this->input->post("predikat_sosial");
+			$deskripsi_sosial = $this->input->post("deskripsi_sosial");
+			$deskripsi_spiritual = $this->input->post("deskripsi_spiritual");
+			$predikat_spiritual = $this->input->post("predikat_spiritual");
+
+			if($this->TeacherModel->insert_deskripsi_siswa_spesifik($nis, $predikat_sosial, $deskripsi_sosial, $deskripsi_spiritual, $predikat_spiritual)){
+				redirect("Teacher/daftar_deskripsi_siswa");
+			} else {
+				$this->session->flashdata('pesanerror', 'Gagal menginput prestasi.');
+				redirect("Teacher/input_deskripsi_siswa?nis=$nis");
+			}
+		} else {
+
+			$nis = $this->input->get("nis");
+			$data = [			
+				'deskripsii'=>$this->TeacherModel->get_deskripsi_siswa(),
+				"mapels"=>$this->TeacherModel->get_mapel($nis),
+				"siswa"=>$this->TeacherModel->get_siswa_spesifik($nis)
+			];
+			$this->load->view('guru/input_deskripsi_siswa', $data);
+		}
+	}
+
+	public function edit_deskripsi_siswa()
+	{
+		$nis = $this->input->get("nis");
+		$this->load->model("TeacherModel");
+
+		if(isset($_POST["editDeskripsiSiswa"])){
+			$nis = $this->input->post('nis_x');
+			$predikat_sosial = $this->input->post("predikat_sosial");
+			$deskripsi_sosial = $this->input->post("deskripsi_sosial");
+			$deskripsi_spiritual = $this->input->post("deskripsi_spiritual");
+			$predikat_spiritual = $this->input->post("predikat_spiritual");
+
+			
+			if($this->TeacherModel->update_deskripsi_siswa_spesifik($nis, $predikat_sosial, $deskripsi_sosial, $deskripsi_spiritual, $predikat_spiritual)){
+				redirect("Teacher/daftar_deskripsi_siswa");
+			}  else {
+				$this->session->flashdata('pesanerror', 'Gagal mengedit Ekstra.');
+				redirect("Teacher/edit_deskripsi_siswa?nis=$nis");
+			}
+		}
+		else
+		{
+			$data = [
+	 			'deskripsi_spiritual'=>$this->TeacherModel->get_deskripsi_siswa(),
+				'deskripsi_sosial'=>$this->TeacherModel->get_deskripsi_siswa(),
+				"siswa" => $this->TeacherModel->get_siswa_spesifik($nis)
+				
+			];
+			$this->load->view('guru/edit_deskripsi_siswa', $data);
+		}
+	}
+	// public function edit_deskripsi_siswa()
+	// {
+	// 	$nis = $this->input->get("nis");
+	// 	$this->load->model("TeacherModel");
+
+	// 	if(isset($_POST["editDeskripsiSiswa"]))
+	// 	{
+	// 		$nis = $this->input->post('nis_x');
+	// 		$predikat_sosial = $this->input->post("predikat_sosial");
+	// 		$deskripsi_sosial = $this->input->post("deskripsi_sosial");
+	// 		$deskripsi_spiritual = $this->input->post("deskripsi_spiritual");
+	// 		$predikat_spiritual = $this->input->post("predikat_spiritual");
+
+	// 		if($this->TeacherModel->update_deskripsi_siswa_spesifik($nis, $predikat_sosial, $deskripsi_sosial, $deskripsi_spiritual, $predikat_spiritual)){
+	// 			redirect("Teacher/daftar_deskripsi_siswa");
+	// 		} 
+	// 		} else {
+	// 			$this->session->flashdata('pesanerror', 'Gagal mengedit Ekstra.');
+	// 			redirect("Teacher/edit_deskripsi_siswa?nis=$nis");
+	// 		}
+	// 	}
+	// 	else
+	// 	{
+	// 		$data = [
+	// 			'deskripsi_spiritual'=>$this->TeacherModel->get_deskripsi_siswa(),
+	// 			'deskripsi_sosial'=>$this->TeacherModel->get_deskripsi_siswa(),
+	// 			"siswa" => $this->TeacherModel->get_siswa_spesifik($nis),
+	// 			"mapels"=>$this->TeacherModel->get_mapel($nis),
+	// 			"ekstra" => $this->TeacherModel->get_deskripsi_siswa_spesifik($nis)
+	// 		];
+	// 		$this->load->view('guru/edit_deskripsik', $data);
+	// 	}
+	// }
+
+	public function daftar_deskripsi_siswa()
+	{
+		$this->load->model('TeacherModel');
+		$data = [
+			'deskripsii'=>$this->TeacherModel->get_deskripsi_siswa(),
+			'siswas' => $this->TeacherModel->get_siswa()
+		];
+		$this->load->view('guru/daftar_deskripsi_siswa', $data);
+	}
+
 }

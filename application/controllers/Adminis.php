@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Adminis extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
@@ -13,17 +12,14 @@ class Adminis extends CI_Controller {
 	    }
 	    $this->load->model('AdminModel');
 	}
-
 	public function index()
 	{
 		$this->load->view('index');
 	}
-
 	public function Admin()
 	{
 		$this->load->view('Admin/dashboard');
 	}
-
 	public function daftar_guru()
 	{
 		$data = [
@@ -31,7 +27,6 @@ class Adminis extends CI_Controller {
 		];
 		$this->load->view('Admin/icons', $data);
 	}
-
 	public function daftar_siswa()
 	{
 		$data = [
@@ -39,7 +34,6 @@ class Adminis extends CI_Controller {
 		];
 		$this->load->view('Admin/map', $data);
 	}
-
 	public function akun()
 	{
 		$data = [
@@ -55,7 +49,6 @@ class Adminis extends CI_Controller {
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$jabatan = $this->input->post('jabatan');
-
 			if($this->AdminModel->tambah_akun_spesifik($nama, $username, $password, $jabatan)){
 				redirect('Adminis/akun');
 			} else {
@@ -68,7 +61,6 @@ class Adminis extends CI_Controller {
 			$this->load->view('admin/tambah_akun');
 		}
 	}
-
 	public function edit_akun(){
 		if(isset($_POST['editAkun'])){
 			$nama = $this->input->post('nama');
@@ -76,9 +68,7 @@ class Adminis extends CI_Controller {
 			$password = $this->input->post('password');
 			$jabatan = $this->input->post('jabatan');
 			$id = $this->input->post('id_x');
-
 			// var_dump([$nama, $idmapel, $nip]);die;
-
 			if($this->AdminModel->update_akun_spesifik($nama, $username, $jabatan, $id)){
 				redirect('Adminis/akun');
 			} else {
@@ -96,7 +86,6 @@ class Adminis extends CI_Controller {
 			$this->load->view('admin/edit_akun', $data);
 		}
 	}
-
 	public function hapus_akun(){
 		$id = $this->input->get('id');
 		if($this->AdminModel->delete_akun_spesifik($id)){
@@ -106,7 +95,6 @@ class Adminis extends CI_Controller {
 			redirect("Adminis/akun");
 		}
 	}
-
 	public function tambah_siswa()
 	{
 		if(isset($_POST['inputSiswa'])){
@@ -114,9 +102,7 @@ class Adminis extends CI_Controller {
 			$nisn = $this->input->post('nisn');
 			$nama = $this->input->post('nama');
 			$kelas = $this->input->post('kelas');
-
 			// var_dump([$nama, $idmapel, $nip]);die;
-
 			if($this->AdminModel->tambah_siswa_spesifik($nis, $nisn, $nama, $kelas)){
 				redirect('Adminis/daftar_siswa');
 			} else {
@@ -135,7 +121,6 @@ class Adminis extends CI_Controller {
 			$this->load->view('admin/tambah_siswa', $data);
 		}
 	}
-
 	public function hapus_siswa(){
 		$nis = $this->input->get('nis');
 		if($this->AdminModel->delete_siswa_spesifik($nis)){
@@ -145,14 +130,12 @@ class Adminis extends CI_Controller {
 			redirect("Adminis/daftar_siswa");
 		}
 	}
-
 	public function tambah_guru()
 	{
 		if(isset($_POST['tambahGuru'])){
 			$nama = $this->input->post('nama');
 			$idmapel = $this->input->post('idmapel');
 			$nip = $this->input->post('nip');
-
 			if($this->AdminModel->tambah_guru_spesifik($nama, $nip, $idmapel)){
 				redirect('Adminis/daftar_guru');
 			} else {
@@ -168,16 +151,13 @@ class Adminis extends CI_Controller {
 			$this->load->view('admin/tambah_guru', $data);
 		}
 	}
-
 	public function edit_siswa(){
 		if(isset($_POST['editSiswa'])){
 			$nama = $this->input->post('nama');
 			$nis = $this->input->post('nis_x');
 			$nisn = $this->input->post('nisn_x');
 			$kelas = $this->input->post('kelas');
-
 			// var_dump([$nama, $idmapel, $nip]);die;
-
 			if($this->AdminModel->update_siswa_spesifik($nama, $nis, $nisn, $kelas)){
 				redirect('Adminis/daftar_siswa');
 			} else {
@@ -195,15 +175,12 @@ class Adminis extends CI_Controller {
 			$this->load->view('admin/edit_siswa', $data);
 		}
 	}
-
 	public function edit_guru(){
 		if(isset($_POST['editGuru'])){
 			$nama = $this->input->post('nama');
 			$idmapel = $this->input->post('idmapel');
 			$nip = $this->input->post('nip_x');
-
 			// var_dump([$nama, $idmapel, $nip]);die;
-
 			if($this->AdminModel->update_guru_spesifik($nama, $nip, $idmapel)){
 				redirect('Adminis/daftar_guru');
 			} else {
@@ -222,7 +199,6 @@ class Adminis extends CI_Controller {
 			$this->load->view('admin/edit_guru', $data);
 		}
 	}
-
 	public function hapus_guru(){
 		$nip = $this->input->get('nip');
 		if($this->AdminModel->delete_guru_spesifik($nip)){
