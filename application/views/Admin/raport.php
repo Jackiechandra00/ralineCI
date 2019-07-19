@@ -22,7 +22,7 @@
 		<div class="container" style="border-width: 2px; border-color:#d6d6c2; margin-left: 0px; margin-right: 20px; ">
 			<div class="row">
 				<div style="margin-left: 0px; padding: 10px 10px 10px 10px; margin-top: 30px;">
-					<table style="width: 300px;">
+					<table style="width: 370px;">
 						<tr>
 							<td><b>Nama Sekolah</b></td>
 							<td>:</td>
@@ -41,7 +41,7 @@
 					</table>
 				</div>
 				<div style="margin-left: 100px;  padding: 10px 10px 10px 10px; margin-top: 30px;" >
-					<table style="width: 300px;">
+					<table style="width: 370px;">
 						<tr>
 							<td><b>Kelas</b></td>
 							<td>:</td>
@@ -68,7 +68,7 @@
 	<!-- Ini adalah hasil raport Jurusan IPA -->
 	<div style="margin-top: 20px;">
 		<h5 style="color: #2F669F;"><b>Pengetahuan</b></h5>
-		<table border="2" style="width:700px; text-align: center;">
+		<table border="2" style="width:800px; text-align: center;">
 			<tr>
 				<th rowspan="2">No.</td>
 				<td rowspan="2" style="width: 300px; text-align: center;"><b>Mata Pelajaran</b></td>
@@ -80,7 +80,7 @@
 			<tr>
 				<td><b>&nbsp;&nbsp;Nilai&nbsp;&nbsp;</b></td>
 				<td><b>&nbsp;Predikat&nbsp;</b></td>
-				<td style="width: 300px; text-align: center;"><b>Deskripsi</b></td>				
+				<td style="width: 700px; text-align: center;"><b>Deskripsi</b></td>				
 				
 			</tr>
 			<tr>
@@ -96,7 +96,7 @@
 			</tr>
 			<tr>
 				<td align="left">&nbsp; a. Fiqih</td>
-				<td></td>
+				<td><?= $nilai[0 ]["kkm"] ?></td>
 				<td><?= $nilai[0]["k3"] ?></td>
 				<td><?= $nilai[0]["predikat"] ?></td>
 				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
@@ -104,125 +104,126 @@
 			</tr>
 			<tr>
 				<td align="left">&nbsp;&nbsp;b. Hadist</td>
-				<td></td>
-				<td><?= $nilai[1 ]["k3"] ?></td>
+				<td><?= $nilai[1 ]["kkm"] ?></td>
+				<td><?= $nilai[1]["k3"] ?></td>
 				<td><?= $nilai[1]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[1]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td  align="left">&nbsp;&nbsp;c. Tafsir</td>
-				<td></td>
+				<td><?= $nilai[2 ]["kkm"] ?></td>
 				<td><?= $nilai[2 ]["k3"] ?></td>
 				<td><?= $nilai[2]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[2]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td  align="left">&nbsp;&nbsp;d. Ushul Fiqih</td>
-				<td></td>
-				<td><?= $nilai[3 ]["k3"] ?></td>
+				<td><?= $nilai[3 ]["kkm"] ?></td>
+				<td><?= $nilai[3]["k3"] ?></td>
 				<td><?= $nilai[3]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[3]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
+
 			</tr>
 			<tr>
 				<td align="left">&nbsp;&nbsp;e. Aqidah</td>
-				<td></td>
+				<td><?= $nilai[4 ]["kkm"] ?></td>
 				<td><?= $nilai[4 ]["k3"] ?></td>
 				<td><?= $nilai[4]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[4]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td align="left">&nbsp;&nbsp;f. Musthalah Hadist</td>
-				<td></td>
+				<td><?= $nilai[5 ]["kkm"] ?></td>
 				<td><?= $nilai[5]["k3"] ?></td>
 				<td><?= $nilai[5]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[5]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 
 			<tr>
 				<td align="left">&nbsp;&nbsp;g. Ushul Tafsir</td>
-				<td></td>
+				<td><?= $nilai[6 ]["kkm"] ?></td>
 				<td><?= $nilai[6]["k3"] ?></td>
 				<td><?= $nilai[6]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[6]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
 				
 			</tr>
 
 			<tr>
 				<td align="left">&nbsp;&nbsp;h. Tajwid</td>
-				<td></td>
+				<td><?= $nilai[7 ]["kkm"] ?></td>
 				<td><?= $nilai[7]["k3"] ?></td>
 				<td><?= $nilai[7]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[7]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 
 			<tr>
 				<td align="left">&nbsp;&nbsp;i. Manhaj</td>
-				<td></td>
+				<td><?= $nilai[8 ]["kkm"] ?></td>
 				<td><?= $nilai[8]["k3"] ?></td>
 				<td><?= $nilai[8]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[8]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
 				
 			</tr>
 
 			<tr>
 				<td align="left">&nbsp;&nbsp;j. Akhlak</td>
-				<td></td>
+				<td><?= $nilai[9 ]["kkm"] ?></td>
 				<td><?= $nilai[9 ]["k3"] ?></td>
 				<td><?= $nilai[9]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[9]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td>2.</td>
 				<td align="left">Pendidikan Pancasila dan Kewarganegaraan</td>
-				<td></td>
+				<td><?= $nilai[10 ]["kkm"] ?></td>
 				<td><?= $nilai[10 ]["k3"] ?></td>
 				<td><?= $nilai[10]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[10]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td>3.</td>
 				<td align="left">Bahasa Indonesia</td>
-				<td></td>
+				<td><?= $nilai[11]["kkm"] ?></td>
 				<td><?= $nilai[11]["k3"] ?></td>
 				<td><?= $nilai[11]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[11]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td>4.</td>
 				<td align="left">Bahasa Inggris</td>
-				<td></td>
+				<td><?= $nilai[12]["kkm"] ?></td>
 				<td><?= $nilai[12]["k3"] ?></td>
 				<td><?= $nilai[12]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[12]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td>5.</td>
 				<td align="left">Matematika</td>
-				<td></td>	
+				<td><?= $nilai[13]["kkm"] ?></td>	
 				<td><?= $nilai[13]["k3"] ?></td>
 				<td><?= $nilai[13]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[13]["deskripsi_k3"] ?></td>
 				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td>6.</td>
 				<td align="left">Sejarah Indonesia</td>
-				<td></td>
+				<td><?= $nilai[14 ]["kkm"] ?></td>
 				<td><?= $nilai[14]["k3"] ?></td>
 				<td><?= $nilai[14]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[14]["deskripsi_k3"] ?></td>
 
 			</tr>
 		
@@ -232,34 +233,34 @@
 			<tr>
 				<td>1.</td>
 				<td align="left">Seni Budaya</td>
-				<td></td>
+				<td><?= $nilai[15]["kkm"] ?></td>
 				<td><?= $nilai[15]["k3"] ?></td>
 				<td><?= $nilai[15]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[15]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td>2.</td>
 				<td align="left">Pendidikan Jasmani, Olahraga, dan Kesehatan</td>
-				<td></td>
+				<td><?= $nilai[16]["kkm"] ?></td>
 				<td><?= $nilai[16]["k3"] ?></td>
 				<td><?= $nilai[16]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[16]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td>3.</td>
 				<td align="left">Prakarya dan Kewirausahaan</td>
-				<td></td>
+				<td><?= $nilai[17]["kkm"] ?></td>
 				<td><?= $nilai[17]["k3"] ?></td>
 				<td><?= $nilai[17]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[17]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td>4.</td>
 				<td align="left">IPS Terpadu</td>
-				<td></td>
+				<td><?= $nilai[18]["kkm"] ?></td>
 				<td><?= $nilai[18]["k3"] ?></td>
 				<td><?= $nilai[18]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[18]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td colspan="6" align="left" style="padding-left: 10px;"><b>Kelompok C (Peminatan)</b></td>
@@ -267,34 +268,34 @@
 			<tr>
 				<td>1.</td>
 				<td align="left">Matematika</td>
-				<td></td>
+				<td><?= $nilai[19]["kkm"] ?></td>
 				<td><?= $nilai[19]["k3"] ?></td>
 				<td><?= $nilai[19]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[19]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td>2.</td>
 				<td align="left">Biologi</td>
-				<td></td>
+				<td><?= $nilai[20]["kkm"] ?></td>
 				<td><?= $nilai[20]["k3"] ?></td>
 				<td><?= $nilai[20]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>s
+				<td><?= $nilai[20]["deskripsi_k3"] ?></td>s
 			</tr>
 			<tr>
 				<td>3.</td>
 				<td align="left">Fisika</td>
-				<td></td>
+				<td><?= $nilai[21]["kkm"] ?></td>
 				<td><?= $nilai[21]["k3"] ?></td>
 				<td><?= $nilai[21]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[21]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td>4.</td>
 				<td align="left">Kimia</td>
-				<td></td>
+				<td><?= $nilai[22]["kkm"] ?></td>
 				<td><?= $nilai[22]["k3"] ?></td>
 				<td><?= $nilai[22]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[22]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td rowspan="7">5.</td>
@@ -306,45 +307,45 @@
 			</tr>
 			<tr>
 				<td align="left">&nbsp; a. Nahwu</td>
-				<td></td>
+				<td><?= $nilai[23]["kkm"] ?></td>
 				<td><?= $nilai[23]["k3"] ?></td>
 				<td><?= $nilai[23]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[23]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td align="left">&nbsp; b. Sharaf</td>
-				<td></td>
+				<td><?= $nilai[24]["kkm"] ?></td>
 				<td><?= $nilai[24]["k3"] ?></td>
 				<td><?= $nilai[24]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[24]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td align="left">&nbsp; c. Mudahatsah</td>
-				<td></td>
+				<td><?= $nilai[25]["kkm"] ?></td>
 				<td><?= $nilai[25]["k3"] ?></td>
 				<td><?= $nilai[25]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[25]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td align="left">&nbsp; d. Balaghah</td>
-				<td></td>
+				<td><?= $nilai[26]["kkm"] ?></td>
 				<td><?= $nilai[26]["k3"] ?></td>
 				<td><?= $nilai[26]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[26]["deskripsi_k3"] ?></td>
 			</tr>
 				<tr>
 				<td align="left">&nbsp; e. Khat-Imlah</td>
-				<td></td>
+				<td><?= $nilai[27]["kkm"] ?></td>
 				<td><?= $nilai[27]["k3"] ?></td>
 				<td><?= $nilai[27]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[27]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td align="left">&nbsp; f. Muthola'ah</td>
-				<td></td>
+				<td><?= $nilai[28]["kkm"] ?></td>
 				<td><?= $nilai[28]["k3"] ?></td>
 				<td><?= $nilai[28]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[28]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td colspan="6" align="left" style="padding-left: 10px;"><b>Kelompok D (Keunggulan Sekolah)</b></td>
@@ -352,10 +353,10 @@
 			<tr>
 				<td>1</td>
 				<td align="left">Tahfiz</td>
-				<td></td>
+				<td><?= $nilai[29]["kkm"] ?></td>
 				<td><?= $nilai[29]["k3"] ?></td>
 				<td><?= $nilai[29]["predikat"] ?></td>
-				<td><?= $nilai[0]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[29]["deskripsi_k3"] ?></td>
 			</tr>
 		<!-- 	<tr>
 				<td rowspan="3">2</td>
@@ -393,31 +394,31 @@
 	<div class="row">
 		<div class="container" style="border-width: 2px; border-color:#d6d6c2; margin-left: 0px; margin-right: 20px; ">
 			<div class="row">
-				<div style="margin-left: 0px; padding: 10px 10px 10px 10px;">
-					<table style="width: 300px;">
+				<div style="margin-left: 0px; padding: 10px 10px 10px 10px; margin-top: 30px;">
+					<table style="width: 370px;">
 						<tr>
 							<td><b>Nama Sekolah</b></td>
 							<td>:</td>
-							<td> NAMA SEKOLAH</td>
+							<td> SMA ISLAM ULUN NUHA</td>
 						</tr>
 						<tr>
 							<td><b>Nama Siswa</b></td>
 							<td>:</td>
-							<td> NAMA SISWA</td>
+							<td> <?= $siswa->nama ?></td>
 						</tr>
 						<tr>
 							<td><b>NIS/NISN</b></td>
 							<td>:</td>
-							<td> NIS SISWA</td>
+							<td> <?= $siswa->nis ?>/<?= $siswa->nisn ?></td>
 						</tr>
 					</table>
 				</div>
-				<div style="margin-left: 100px;  padding: 10px 10px 10px 10px;">
-					<table style="width: 300px;">
+				<div style="margin-left: 100px;  padding: 10px 10px 10px 10px; margin-top: 30px;" >
+					<table style="width: 370px;">
 						<tr>
 							<td><b>Kelas</b></td>
 							<td>:</td>
-							<td> KELAS</td>
+							<td> <?= $siswa->kelas ?></td>
 						</tr>
 						<tr>
 							<td><b>Penilaian</b></td>
@@ -427,7 +428,7 @@
 						<tr>
 							<td><b>Tahun Pelajaran</b></td>
 							<td>:</td>
-							<td> TAHUN PELAJARAN</td>
+							<td> <?= $thn->tahun_akademik ?></td>
 						</tr>
 					</table>
 				</div>
@@ -438,22 +439,21 @@
 	<!-- batas box -->
 	<!-- INI ADALAH HASIL PAGE SETELAH TOMBOL CARI DIKLIK-->
 	<!-- Ini adalah hasil raport Jurusan IPA -->
-	<div style="margin-top: 30px;">
-		<h5 style="color: #2F669F;"><b>Keterampilan </b></h5>
-
-		<table border="2" style="width:700px; text-align: center;">
+	<div style="margin-top: 20px;">
+		<h5 style="color: #2F669F;"><b>Keterampilan</b></h5>
+		<table border="2" style="width:800px; text-align: center;">
 			<tr>
 				<th rowspan="2">No.</td>
-				<td rowspan="2" style="width: 300px; text-align: center;"><b>Mata Pelajaran</b></td>
+				<td rowspan="2" style="width: 400px; text-align: center;"><b>Mata Pelajaran</b></td>
 				<td rowspan="2"><b>KKM</b></td>
 				<td colspan="3"><b>Keterampilan</b></td>
 				
 				
 			</tr>
 			<tr>
-				<td><b>&nbsp;Nilai&nbsp;</b></td>
+				<td><b>&nbsp;&nbsp;Nilai&nbsp;&nbsp;</b></td>
 				<td><b>&nbsp;Predikat&nbsp;</b></td>
-				<td style="width: 500px; text-align: center;"><b>Deskripsi</b></td>				
+				<td style="width: 700px; text-align: center;"><b>Deskripsi</b></td>				
 				
 			</tr>
 			<tr>
@@ -469,120 +469,134 @@
 			</tr>
 			<tr>
 				<td align="left">&nbsp; a. Fiqih</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[0 ]["kkm"] ?></td>
+				<td><?= $nilai[0]["k4"] ?></td>
+				<td><?= $nilai[0]["predikat"] ?></td>
+				<td><?= $nilai[0]["deskripsi_k4"] ?></td>
+				<?php // echo print_r($nilai) ?>
 			</tr>
 			<tr>
 				<td align="left">&nbsp;&nbsp;b. Hadist</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[1 ]["kkm"] ?></td>
+				<td><?= $nilai[1]["k4"] ?></td>
+				<td><?= $nilai[1]["predikat"] ?></td>
+				<td><?= $nilai[1]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td  align="left">&nbsp;&nbsp;c. Tafsir</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[2 ]["kkm"] ?></td>
+				<td><?= $nilai[2 ]["k4"] ?></td>
+				<td><?= $nilai[2]["predikat"] ?></td>
+				<td><?= $nilai[2]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td  align="left">&nbsp;&nbsp;d. Ushul Fiqih</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[3 ]["kkm"] ?></td>
+				<td><?= $nilai[3]["k4"] ?></td>
+				<td><?= $nilai[3]["predikat"] ?></td>
+				<td><?= $nilai[3]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
+
 			</tr>
 			<tr>
 				<td align="left">&nbsp;&nbsp;e. Aqidah</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[4 ]["kkm"] ?></td>
+				<td><?= $nilai[4 ]["k4"] ?></td>
+				<td><?= $nilai[4]["predikat"] ?></td>
+				<td><?= $nilai[4]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td align="left">&nbsp;&nbsp;f. Musthalah Hadist</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[5 ]["kkm"] ?></td>
+				<td><?= $nilai[5]["k4"] ?></td>
+				<td><?= $nilai[5]["predikat"] ?></td>
+				<td><?= $nilai[5]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 
 			<tr>
 				<td align="left">&nbsp;&nbsp;g. Ushul Tafsir</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[6 ]["kkm"] ?></td>
+				<td><?= $nilai[6]["k4"] ?></td>
+				<td><?= $nilai[6]["predikat"] ?></td>
+				<td><?= $nilai[6]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
 				
 			</tr>
 
 			<tr>
 				<td align="left">&nbsp;&nbsp;h. Tajwid</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				
+				<td><?= $nilai[7 ]["kkm"] ?></td>
+				<td><?= $nilai[7]["k4"] ?></td>
+				<td><?= $nilai[7]["predikat"] ?></td>
+				<td><?= $nilai[7]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 
 			<tr>
 				<td align="left">&nbsp;&nbsp;i. Manhaj</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[8 ]["kkm"] ?></td>
+				<td><?= $nilai[8]["k4"] ?></td>
+				<td><?= $nilai[8]["predikat"] ?></td>
+				<td><?= $nilai[8]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
 				
 			</tr>
 
 			<tr>
 				<td align="left">&nbsp;&nbsp;j. Akhlak</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[9 ]["kkm"] ?></td>
+				<td><?= $nilai[9 ]["k4"] ?></td>
+				<td><?= $nilai[9]["predikat"] ?></td>
+				<td><?= $nilai[9]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td>2.</td>
 				<td align="left">Pendidikan Pancasila dan Kewarganegaraan</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[10 ]["kkm"] ?></td>
+				<td><?= $nilai[10 ]["k4"] ?></td>
+				<td><?= $nilai[10]["predikat"] ?></td>
+				<td><?= $nilai[10]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td>3.</td>
 				<td align="left">Bahasa Indonesia</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[11]["kkm"] ?></td>
+				<td><?= $nilai[11]["k4"] ?></td>
+				<td><?= $nilai[11]["predikat"] ?></td>
+				<td><?= $nilai[11]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td>4.</td>
 				<td align="left">Bahasa Inggris</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[12]["kkm"] ?></td>
+				<td><?= $nilai[12]["k4"] ?></td>
+				<td><?= $nilai[12]["predikat"] ?></td>
+				<td><?= $nilai[12]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td>5.</td>
 				<td align="left">Matematika</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[13]["kkm"] ?></td>	
+				<td><?= $nilai[13]["k4"] ?></td>
+				<td><?= $nilai[13]["predikat"] ?></td>
+				<td><?= $nilai[13]["deskripsi_k4"] ?></td>
+				<!-- <?php echo print_r($nilai) ?> -->
 			</tr>
 			<tr>
 				<td>6.</td>
 				<td align="left">Sejarah Indonesia</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[14 ]["kkm"] ?></td>
+				<td><?= $nilai[14]["k4"] ?></td>
+				<td><?= $nilai[14]["predikat"] ?></td>
+				<td><?= $nilai[14]["deskripsi_k4"] ?></td>
 
 			</tr>
 		
@@ -592,34 +606,34 @@
 			<tr>
 				<td>1.</td>
 				<td align="left">Seni Budaya</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[15]["kkm"] ?></td>
+				<td><?= $nilai[15]["k4"] ?></td>
+				<td><?= $nilai[15]["predikat"] ?></td>
+				<td><?= $nilai[15]["deskripsi_k4"] ?></td>
 			</tr>
 			<tr>
 				<td>2.</td>
 				<td align="left">Pendidikan Jasmani, Olahraga, dan Kesehatan</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[16]["kkm"] ?></td>
+				<td><?= $nilai[16]["k4"] ?></td>
+				<td><?= $nilai[16]["predikat"] ?></td>
+				<td><?= $nilai[16]["deskripsi_k4"] ?></td>
 			</tr>
 			<tr>
 				<td>3.</td>
 				<td align="left">Prakarya dan Kewirausahaan</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[17]["kkm"] ?></td>
+				<td><?= $nilai[17]["k4"] ?></td>
+				<td><?= $nilai[17]["predikat"] ?></td>
+				<td><?= $nilai[17]["deskripsi_k4"] ?></td>
 			</tr>
 			<tr>
 				<td>4.</td>
 				<td align="left">IPS Terpadu</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[18]["kkm"] ?></td>
+				<td><?= $nilai[18]["k4"] ?></td>
+				<td><?= $nilai[18]["predikat"] ?></td>
+				<td><?= $nilai[18]["deskripsi_k4"] ?></td>
 			</tr>
 			<tr>
 				<td colspan="6" align="left" style="padding-left: 10px;"><b>Kelompok C (Peminatan)</b></td>
@@ -627,34 +641,34 @@
 			<tr>
 				<td>1.</td>
 				<td align="left">Matematika</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[19]["kkm"] ?></td>
+				<td><?= $nilai[19]["k4"] ?></td>
+				<td><?= $nilai[19]["predikat"] ?></td>
+				<td><?= $nilai[19]["deskripsi_k4"] ?></td>
 			</tr>
 			<tr>
 				<td>2.</td>
 				<td align="left">Biologi</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[20]["kkm"] ?></td>
+				<td><?= $nilai[20]["k4"] ?></td>
+				<td><?= $nilai[20]["predikat"] ?></td>
+				<td><?= $nilai[20]["deskripsi_k4"] ?></td>s
 			</tr>
 			<tr>
 				<td>3.</td>
 				<td align="left">Fisika</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[21]["kkm"] ?></td>
+				<td><?= $nilai[21]["k4"] ?></td>
+				<td><?= $nilai[21]["predikat"] ?></td>
+				<td><?= $nilai[21]["deskripsi_k4"] ?></td>
 			</tr>
 			<tr>
 				<td>4.</td>
 				<td align="left">Kimia</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[22]["kkm"] ?></td>
+				<td><?= $nilai[22]["k4"] ?></td>
+				<td><?= $nilai[22]["predikat"] ?></td>
+				<td><?= $nilai[22]["deskripsi_k4"] ?></td>
 			</tr>
 			<tr>
 				<td rowspan="7">5.</td>
@@ -664,47 +678,47 @@
 				<td></td>
 				<td></td>
 			</tr>
-	<tr>
+			<tr>
 				<td align="left">&nbsp; a. Nahwu</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[23]["kkm"] ?></td>
+				<td><?= $nilai[23]["k4"] ?></td>
+				<td><?= $nilai[23]["predikat"] ?></td>
+				<td><?= $nilai[23]["deskripsi_k4"] ?></td>
 			</tr>
 			<tr>
 				<td align="left">&nbsp; b. Sharaf</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[24]["kkm"] ?></td>
+				<td><?= $nilai[24]["k4"] ?></td>
+				<td><?= $nilai[24]["predikat"] ?></td>
+				<td><?= $nilai[24]["deskripsi_k4"] ?></td>
 			</tr>
 			<tr>
 				<td align="left">&nbsp; c. Mudahatsah</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[25]["kkm"] ?></td>
+				<td><?= $nilai[25]["k4"] ?></td>
+				<td><?= $nilai[25]["predikat"] ?></td>
+				<td><?= $nilai[25]["deskripsi_k4"] ?></td>
 			</tr>
 			<tr>
 				<td align="left">&nbsp; d. Balaghah</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[26]["kkm"] ?></td>
+				<td><?= $nilai[26]["k4"] ?></td>
+				<td><?= $nilai[26]["predikat"] ?></td>
+				<td><?= $nilai[26]["deskripsi_k4"] ?></td>
 			</tr>
 				<tr>
 				<td align="left">&nbsp; e. Khat-Imlah</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[27]["kkm"] ?></td>
+				<td><?= $nilai[27]["k4"] ?></td>
+				<td><?= $nilai[27]["predikat"] ?></td>
+				<td><?= $nilai[27]["deskripsi_k4"] ?></td>
 			</tr>
 			<tr>
 				<td align="left">&nbsp; f. Muthola'ah</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[28]["kkm"] ?></td>
+				<td><?= $nilai[28]["k4"] ?></td>
+				<td><?= $nilai[28]["predikat"] ?></td>
+				<td><?= $nilai[28]["deskripsi_k4"] ?></td>
 			</tr>
 			<tr>
 				<td colspan="6" align="left" style="padding-left: 10px;"><b>Kelompok D (Keunggulan Sekolah)</b></td>
@@ -712,10 +726,10 @@
 			<tr>
 				<td>1</td>
 				<td align="left">Tahfiz</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><?= $nilai[29]["kkm"] ?></td>
+				<td><?= $nilai[29]["k4"] ?></td>
+				<td><?= $nilai[29]["predikat"] ?></td>
+				<td><?= $nilai[29]["deskripsi_k4"] ?></td>
 			</tr>
 		<!-- 	<tr>
 				<td rowspan="3">2</td>
@@ -742,33 +756,10 @@
 				<td></td>
 				<td></td>
 			</tr> -->
+			
+		</table>
 
 
-		<!-- 	<tr>
-				<td rowspan="3">2</td>
-				<td align="left">Lainnya</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td style="padding-left: 10px; text-align: left;">a. </td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td  style="padding-left: 10px; text-align: left;">b. </td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr> -->
 			
 </th></tr></table></div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -817,7 +808,7 @@
 			</div>
 		</div>
 	</div>
-
+</div>
 	<!-- batas box -->
 	<!-- INI ADALAH HASIL PAGE SETELAH TOMBOL CARI DIKLIK-->
 	<!-- Ini adalah hasil raport Jurusan IPA -->
