@@ -36,7 +36,7 @@
       </div>
         <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li>
+                <li>
             <a href="<?php echo base_url("dashboard"); ?>">
               <i class="now-ui-icons users_circle-08"></i>
               <p>Dashboard</p>
@@ -48,7 +48,7 @@
               <p>Daftar Nilai</p>
             </a>
           </li>
-      <!--     <li>
+         <!--  <li>
             <a href="<?php echo base_url("Teacher/input_nilai"); ?>">
               <i class="now-ui-icons design-2_ruler-pencil "></i>
               <p>Input Nilai</p>
@@ -78,7 +78,7 @@
               <p>Daftar Guru</p>
             </a>
           </li>
-           <li class="active">
+           <li>
             <a href="<?php echo base_url("Teacher/catatan"); ?>">
               <i class="now-ui-icons education_agenda-bookmark"></i>
               <p>Catatan</p>
@@ -102,18 +102,25 @@
               <p>Deskripsi Siswa</p>
             </a>
           </li>
-          <li>
+          <li class="active">
+            <a href="<?php echo base_url("Teacher/deskripsi_siswa"); ?>">
+              <i class="now-ui-icons  files_single-copy-04"></i>
+              <p>Deskripsi Siswa</p>
+            </a>
+          </li>
+          <li >
             <a href="<?php echo base_url("Teacher/deskripsip"); ?>">
               <i class="now-ui-icons  business_bank"></i>
               <p>Deskripsi Pengetahuan</p>
             </a>
-          </li>
+          </li >
             <li>
             <a href="<?php echo base_url("Teacher/deskripsik"); ?>">
               <i class="now-ui-icons  business_bank"></i>
               <p>Deskripsi Keterampilan</p>
             </a>
           </li>
+
           <li>
             <a href="<?php echo base_url("Login/logout"); ?>">
               <i class="now-ui-icons sport_user-run"></i>
@@ -188,16 +195,19 @@
           </div>
         </div>
       </nav>
-       <div class="panel-header panel-header-sm">
+
+      <div class="panel-header panel-header-sm">
       </div>
       <div class="content">
         <div class="row">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Daftar Catatan</h5>
-              </div>
-               <div class="content">
+                <h5 class="title">Daftar Siswa</h5>
+             </a>
+             </div>
+  <br>
+      <div class="content">
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -206,36 +216,43 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                      <th class="text-center">
+                      <th>
                         Nama
                       </th>
-                      <th class="text-center">
-                        Kelas
+                      <th>
+                        NIS
                       </th>
-                      <th class="text-center">
-                        Catatan
+                      <th>
+                        NISN
+                      </th>
+                      <th>
+                        Kelas
                       </th>
                       <th class="text-center">
                         Aksi
                       </th>
                     </thead>
                     <tbody>
-                      <?php foreach($catatans as $catatan): ?>
-                        <tr>
-                          <td class="text-center">
-                            <?= $catatan->nis ?>  
-                          </td>
-                          <td class="text-center">
-                            <?= $catatan->kelas ?>  
-                          </td>
-                          <td class="text-center">
-                            <?= $catatan->keterangan ?>
-                          </td>
-                           
-                          <td class="text-center">
-                            <a class="btn" style="color: white;" href="<?= base_url("Teacher/edit_catatan?nis=$catatan->nis") ?>">Edit</a>
-                          </td>
-                        </tr>
+                      <?php foreach($siswas as $siswa): ?>
+                      <tr>
+                        <td>
+                          <?= $siswa->nama ?>  
+                        </td>
+                        <td>
+                          <?= $siswa->nis ?>  
+                        </td>
+                        <td>
+                          <?= $siswa->nisn ?>
+                        </td>
+                        <td >
+                          <?= $siswa->kelas ?>
+                        </td>
+                        <td><center>
+                          <a class="btn" href="<?= base_url("Teacher/input_deskripsi_siswa?nis=$siswa->nis") ?>">Input<br>Deskripsi</a>
+
+                          <a class="btn" href="<?= base_url("Teacher/daftar_deskripsi_siswa?nis=$siswa->nis") ?>">Daftar<br>Deskripsi</a></center>
+                        </td> 
+                      </tr>
                       <?php endforeach; ?>
                       
                     </tbody>
@@ -245,16 +262,9 @@
             </div>
           </div>
           
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-          
       
   <!--   Core JS Files   -->
-    <script src="<?php echo base_url("assets/js/core/jquery.min.js")?>"></script>
+   <script src="<?php echo base_url("assets/js/core/jquery.min.js")?>"></script>
   <script src="<?php echo base_url("assets/js/core/popper.min.js")?>"></script>
   <script src="<?php echo base_url("assets/js/core/bootstrap.min.js")?>"></script>
   <script src="<?php echo base_url("assets/js/plugins/perfect-scrollbar.jquery.min.js")?>"></script>
@@ -268,8 +278,7 @@
   <script src="<?php echo base_url("assets/js/now-ui-dashboard.min.js?v=1.3.0")?> type="text/javascript"></script>
   <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="<?php echo base_url("assets/demo/demo.js")?>"></script>
- 
-  <script>
+ <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       demo.initGoogleMaps();

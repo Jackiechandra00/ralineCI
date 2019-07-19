@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -94,6 +94,24 @@
             <a href="<?php echo base_url("Teacher/ekskul"); ?>">
               <i class="now-ui-icons  design_palette"></i>
               <p>Ekskul</p>
+            </a>
+          </li>
+           <li>
+            <a href="<?php echo base_url("Teacher/deskripsi_siswa"); ?>">
+              <i class="now-ui-icons  files_single-copy-04"></i>
+              <p>Deskripsi Siswa</p>
+            </a>
+          </li>
+          <li>
+            <a href="<?php echo base_url("Teacher/deskripsip"); ?>">
+              <i class="now-ui-icons  business_bank"></i>
+              <p>Deskripsi Pengetahuan</p>
+            </a>
+          </li>
+            <li>
+            <a href="<?php echo base_url("Teacher/deskripsik"); ?>">
+              <i class="now-ui-icons  business_bank"></i>
+              <p>Deskripsi Keterampilan</p>
             </a>
           </li>
           <li>

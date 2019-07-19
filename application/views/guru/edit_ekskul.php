@@ -97,6 +97,24 @@
             </a>
           </li>
           <li>
+            <a href="<?php echo base_url("Teacher/deskripsi_siswa"); ?>">
+              <i class="now-ui-icons  files_single-copy-04"></i>
+              <p>Deskripsi Siswa</p>
+            </a>
+          </li>
+          <li>
+            <a href="<?php echo base_url("Teacher/deskripsip"); ?>">
+              <i class="now-ui-icons  business_bank"></i>
+              <p>Deskripsi Pengetahuan</p>
+            </a>
+          </li>
+            <li>
+            <a href="<?php echo base_url("Teacher/deskripsik"); ?>">
+              <i class="now-ui-icons  business_bank"></i>
+              <p>Deskripsi Keterampilan</p>
+            </a>
+          </li>
+          <li>
             <a href="<?php echo base_url("Login/logout"); ?>">
               <i class="now-ui-icons sport_user-run"></i>
               <p>Keluar</p>
@@ -118,7 +136,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">PRESTASI</a>
+            <a class="navbar-brand" href="#pablo">EKSKUL</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -178,7 +196,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Input Prestasi</h5>
+                <h5 class="title">Edit Ekskul</h5>
                 <?php if($this->session->flashdata('pesanerror') != ""): ?>
                   <p class="alert alert-warning"><?= $this->session->flashdata('pesanerror') ?></p>
                 <?php endif; ?>
@@ -208,30 +226,40 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="col-md-8 pr-1">
                       <div class="form-group">
-                        <label>Nama Kegiatan</label>
-                        <input type="text" class="form-control" placeholder="Nama Kegiatan" name="kegiatan" required>
+                        <label>Deskripsi Ekskul</label>
+                        <input type="text" class="form-control" placeholder="Deskripsi Ekskul" name="deskripsi_ex" required>
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="col-md-8 pr-1">
                       <div class="form-group">
-                        <label>Keterangan</label>
-                        <input type="text" class="form-control" placeholder="Keterangan" name="keterangan" required>
+                        <label>Jenis Ekstrakurikuler</label>
+                        <select class="custom-select form-control" name="jenis_extra" required>
+                          <option value="">Pilih Ekstrakulikuler</option>
+                            <option value="TATA BOGA">TATA BOGA</option>
+                            <option value="RENANG">RENANG</option>
+                            <option value="ARABIC CLUB">ARABIC CLUB</option>
+                            <option value="TAKLIM">TAKLIM</option>
+                            <option value="JURNALISTIK">JURNALISTIK</option>
+                            <option value="SAINS CLUB">SAINS CLUB</option>
+                            <option value="BELADIRI">BELADIRI</option>
+                            <option value="FUTSAL">FUTSAL</option>
+                            <option value="PRAMUKA">PRAMUKA</option>
+                        </select>
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="col-md-8 pr-1">
+                   <div class="col-md-8 pr-1">
                       <div class="form-group">
-                        <label>Catatan Khusus</label>
-                        <input type="text" class="form-control" placeholder="Catatan Khusus" name="catatan_khusus" required>
+                        <label>Nilai</label>
+                        <input type="text" class="form-control" placeholder="Nilai Ekskul" name="nilai_ex" required>
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   
                 </div>
                 <div class="card-footer">
-                  <input class="btn btn-primary" type="submit" name="editPrestasi" value="Simpan">
-                </div>
+                  <input class="btn btn-primary" type="submit" name="editEkskul" value="Simpan">
+                </div> 
               </form>
               </div>
             </div>

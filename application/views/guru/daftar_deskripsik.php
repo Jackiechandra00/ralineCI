@@ -78,19 +78,19 @@
               <p>Daftar Guru</p>
             </a>
           </li>
-           <li class="active">
+           <li>
             <a href="<?php echo base_url("Teacher/catatan"); ?>">
               <i class="now-ui-icons education_agenda-bookmark"></i>
               <p>Catatan</p>
             </a>
           </li>
-          <li>
+          <li >
             <a href="<?php echo base_url("Teacher/prestasi"); ?>">
               <i class="now-ui-icons business_bulb-63"></i>
               <p>Prestasi</p>
             </a>
           </li>
-          <li>
+          <li >
             <a href="<?php echo base_url("Teacher/ekskul"); ?>">
               <i class="now-ui-icons  design_palette"></i>
               <p>Ekskul</p>
@@ -102,13 +102,14 @@
               <p>Deskripsi Siswa</p>
             </a>
           </li>
-          <li>
+          <li >
             <a href="<?php echo base_url("Teacher/deskripsip"); ?>">
               <i class="now-ui-icons  business_bank"></i>
               <p>Deskripsi Pengetahuan</p>
             </a>
           </li>
-            <li>
+         
+            <li class="active">
             <a href="<?php echo base_url("Teacher/deskripsik"); ?>">
               <i class="now-ui-icons  business_bank"></i>
               <p>Deskripsi Keterampilan</p>
@@ -136,7 +137,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Catatan</a>
+            <a class="navbar-brand" href="#pablo">Deskripsi</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -195,7 +196,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Daftar Catatan</h5>
+                <h5 class="title">Daftar Deskripsi</h5>
               </div>
                <div class="content">
         <div class="row">
@@ -213,27 +214,34 @@
                         Kelas
                       </th>
                       <th class="text-center">
-                        Catatan
+                        Mapel                    
+                      </th>
+                      <th class="text-center">
+                        Deskripsi
                       </th>
                       <th class="text-center">
                         Aksi
                       </th>
                     </thead>
                     <tbody>
-                      <?php foreach($catatans as $catatan): ?>
+                     <!--  <?php var_dump($ekskull); ?> -->
+                      <?php foreach($deskripsik4 as $deskripsi): ?>
                         <tr>
                           <td class="text-center">
-                            <?= $catatan->nis ?>  
+                            <?= $deskripsi->nis ?>  
                           </td>
                           <td class="text-center">
-                            <?= $catatan->kelas ?>  
+                            <?= $deskripsi->kelas ?>  
                           </td>
                           <td class="text-center">
-                            <?= $catatan->keterangan ?>
+                            <?= $deskripsi->mapel ?>  
+                          </td>
+                          <td class="text-center">
+                            <?= $deskripsi->deskripsi_k4 ?>
                           </td>
                            
                           <td class="text-center">
-                            <a class="btn" style="color: white;" href="<?= base_url("Teacher/edit_catatan?nis=$catatan->nis") ?>">Edit</a>
+                            <a class="btn" style="color: white;" href="<?= base_url("Teacher/edit_deskripsik?nis=$deskripsi->nis") ?>">Edit</a>
                           </td>
                         </tr>
                       <?php endforeach; ?>

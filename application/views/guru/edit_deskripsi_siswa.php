@@ -48,7 +48,7 @@
               <p>Daftar Nilai</p>
             </a>
           </li>
-      <!--     <li>
+          <!-- <li class="active">
             <a href="<?php echo base_url("Teacher/input_nilai"); ?>">
               <i class="now-ui-icons design-2_ruler-pencil "></i>
               <p>Input Nilai</p>
@@ -78,13 +78,13 @@
               <p>Daftar Guru</p>
             </a>
           </li>
-           <li class="active">
+           <li >
             <a href="<?php echo base_url("Teacher/catatan"); ?>">
               <i class="now-ui-icons education_agenda-bookmark"></i>
               <p>Catatan</p>
             </a>
           </li>
-          <li>
+             <li>
             <a href="<?php echo base_url("Teacher/prestasi"); ?>">
               <i class="now-ui-icons business_bulb-63"></i>
               <p>Prestasi</p>
@@ -96,13 +96,13 @@
               <p>Ekskul</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="<?php echo base_url("Teacher/deskripsi_siswa"); ?>">
               <i class="now-ui-icons  files_single-copy-04"></i>
               <p>Deskripsi Siswa</p>
             </a>
           </li>
-          <li>
+           <li>
             <a href="<?php echo base_url("Teacher/deskripsip"); ?>">
               <i class="now-ui-icons  business_bank"></i>
               <p>Deskripsi Pengetahuan</p>
@@ -136,7 +136,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Catatan</a>
+            <a class="navbar-brand" href="#pablo">Deskripsi</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -188,6 +188,7 @@
           </div>
         </div>
       </nav>
+
        <div class="panel-header panel-header-sm">
       </div>
       <div class="content">
@@ -195,66 +196,87 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Daftar Catatan</h5>
+                <h5 class="title">Edit Deskripsi</h5>
+                <?php if($this->session->flashdata('pesanerror') != ""): ?>
+                  <p class="alert alert-warning"><?= $this->session->flashdata('pesanerror') ?></p>
+                <?php endif; ?>
               </div>
-               <div class="content">
+             <div class="content">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-8">
             <div class="card">
-
+            
               <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th class="text-center">
-                        Nama
-                      </th>
-                      <th class="text-center">
-                        Kelas
-                      </th>
-                      <th class="text-center">
-                        Catatan
-                      </th>
-                      <th class="text-center">
-                        Aksi
-                      </th>
-                    </thead>
-                    <tbody>
-                      <?php foreach($catatans as $catatan): ?>
-                        <tr>
-                          <td class="text-center">
-                            <?= $catatan->nis ?>  
-                          </td>
-                          <td class="text-center">
-                            <?= $catatan->kelas ?>  
-                          </td>
-                          <td class="text-center">
-                            <?= $catatan->keterangan ?>
-                          </td>
-                           
-                          <td class="text-center">
-                            <a class="btn" style="color: white;" href="<?= base_url("Teacher/edit_catatan?nis=$catatan->nis") ?>">Edit</a>
-                          </td>
-                        </tr>
-                      <?php endforeach; ?>
-                      
-                    </tbody>
-                  </table>
+                <form method="POST" action="">
+                  <div class="row">
+                    <div class="col-md-8 pr-1">
+                      <div class="form-group">
+                        <label>Nama</label> 
+                         <input type="text" class="form-control" placeholder="Nama" value="<?= $siswa->nama ?>" readonly >
+                         <input type="hidden" name="nis_x" value="<?= $siswa->nis ?>">
+                      </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-md-8 pr-1">
+                      <div class="form-group">
+                        <label>Kelas</label>
+                       <input type="text" class="form-control" placeholder="Kelas" value="<?= $siswa->kelas ?>" readonly>
+                      </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-md-8 pr-1">
+                      <div class="form-group">
+                        <label>Deskripsi Sosial</label>
+                        <input type="text" class="form-control" placeholder="Deskripsi" name="deskripsi_sosial" required >
+
+                      </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <div class="col-md-8 pr-1">
+                      <div class="form-group">
+                        <label>Predikat Sosial</label>
+                        <input type="text" class="form-control" placeholder="Nilai Predikat" name="predikat_sosial" required>
+                      </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+                
+                    <div class="col-md-8 pr-1">
+                      <div class="form-group">
+                        <label>Deskripsi Spiritual</label>
+                        <input type="text" class="form-control" placeholder="Deskripsi" name="deskripsi_spiritual" required >
+
+                      </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-md-8 pr-1">
+                      <div class="form-group">
+                        <label>Predikat Spiritual</label>
+                        <input type="text" class="form-control" placeholder="Nilai Predikat" name="predikat_spiritual" required>
+                      </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+
                 </div>
-              </div>
-            </div>
-          </div>
-          
+
+                <div class="card-footer">
+                  <input class="btn btn-primary" type="submit" name="editDeskripsiSiswa" value="Simpan">
                 </div>
+              </form>
               </div>
             </div>
           </div>
         </div>
       </div>
           
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>    
       
   <!--   Core JS Files   -->
-    <script src="<?php echo base_url("assets/js/core/jquery.min.js")?>"></script>
+     <script src="<?php echo base_url("assets/js/core/jquery.min.js")?>"></script>
   <script src="<?php echo base_url("assets/js/core/popper.min.js")?>"></script>
   <script src="<?php echo base_url("assets/js/core/bootstrap.min.js")?>"></script>
   <script src="<?php echo base_url("assets/js/plugins/perfect-scrollbar.jquery.min.js")?>"></script>
@@ -268,7 +290,6 @@
   <script src="<?php echo base_url("assets/js/now-ui-dashboard.min.js?v=1.3.0")?> type="text/javascript"></script>
   <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="<?php echo base_url("assets/demo/demo.js")?>"></script>
- 
   <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js

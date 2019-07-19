@@ -84,16 +84,28 @@
               <p>Catatan</p>
             </a>
           </li>
-          <li class="active">
+          <li>
             <a href="<?php echo base_url("Teacher/prestasi"); ?>">
               <i class="now-ui-icons business_bulb-63"></i>
               <p>Prestasi</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="<?php echo base_url("Teacher/ekskul"); ?>">
               <i class="now-ui-icons  design_palette"></i>
               <p>Ekskul</p>
+            </a>
+          </li>
+          <li>
+            <a href="<?php echo base_url("Teacher/deskripsip"); ?>">
+              <i class="now-ui-icons  business_bank"></i>
+              <p>Deskripsi Pengetahuan</p>
+            </a>
+          </li>
+            <li>
+            <a href="<?php echo base_url("Teacher/deskripsik"); ?>">
+              <i class="now-ui-icons  business_bank"></i>
+              <p>Deskripsi Keterampilan</p>
             </a>
           </li>
           <li>
@@ -118,7 +130,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">PRESTASI</a>
+            <a class="navbar-brand" href="#pablo">EKSKUL</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -178,7 +190,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Input Prestasi</h5>
+                <h5 class="title">Input Ekskul</h5>
                 <?php if($this->session->flashdata('pesanerror') != ""): ?>
                   <p class="alert alert-warning"><?= $this->session->flashdata('pesanerror') ?></p>
                 <?php endif; ?>
@@ -233,6 +245,13 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                    
                 </div>
+                <div class="col-md-8 pr-1">
+                      <div class="form-group">
+                        <label>Nilai</label>
+                        <input type="text" class="form-control" placeholder="Nilai Ekskul" name="nilai_ex" required>
+                      </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="card-footer">
                   <input class="btn btn-primary" type="submit" name="addEkskul" value="Simpan">
                 </div>

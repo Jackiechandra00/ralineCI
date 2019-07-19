@@ -84,16 +84,34 @@
               <p>Catatan</p>
             </a>
           </li>
-          <li class="active">
+          <li >
             <a href="<?php echo base_url("Teacher/prestasi"); ?>">
               <i class="now-ui-icons business_bulb-63"></i>
               <p>Prestasi</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="<?php echo base_url("Teacher/ekskul"); ?>">
               <i class="now-ui-icons  design_palette"></i>
               <p>Ekskul</p>
+            </a>
+          </li>
+          <li>
+            <a href="<?php echo base_url("Teacher/deskripsi_siswa"); ?>">
+              <i class="now-ui-icons  files_single-copy-04"></i>
+              <p>Deskripsi Siswa</p>
+            </a>
+          </li>
+          <li>
+            <a href="<?php echo base_url("Teacher/deskripsip"); ?>">
+              <i class="now-ui-icons  business_bank"></i>
+              <p>Deskripsi Pengetahuan</p>
+            </a>
+          </li>
+            <li>
+            <a href="<?php echo base_url("Teacher/deskripsik"); ?>">
+              <i class="now-ui-icons  business_bank"></i>
+              <p>Deskripsi Keterampilan</p>
             </a>
           </li>
           <li>
@@ -195,39 +213,40 @@
                         Kelas
                       </th>
                       <th class="text-center">
-                        Kegiatan                      
+                        Deskripsi Extra                     
                       </th>
                       <th class="text-center">
-                        Keterangan
+                        Jenis Extra
                       </th>
-                      <th class="text-center">
-                        Catatan
+                       <th class="text-center">
+                           Nilai Ekstra
                       </th>
                       <th class="text-center">
                         Aksi
                       </th>
                     </thead>
                     <tbody>
-                      <?php foreach($prestasii as $prestasi): ?>
+                     <!--  <?php var_dump($ekskull); ?> -->
+                      <?php foreach($ekskull as $extra): ?>
                         <tr>
                           <td class="text-center">
-                            <?= $prestasi->nis ?>  
+                            <?= $extra->nis ?>  
                           </td>
                           <td class="text-center">
-                            <?= $prestasi->kelas ?>  
+                            <?= $extra->kelas ?>  
                           </td>
                           <td class="text-center">
-                            <?= $prestasi->kegiatan ?>  
+                            <?= $extra->deskripsi_ex ?>  
                           </td>
                           <td class="text-center">
-                            <?= $prestasi->keterangan ?>
+                            <?= $extra->jenis_extra ?>
                           </td>
                           <td class="text-center">
-                            <?= $prestasi->catatan_khusus ?>  
+                            <?= $extra->nilai_ex ?>
                           </td>
                            
                           <td class="text-center">
-                            <a class="btn" style="color: white;" href="<?= base_url("Teacher/edit_prestasi?nis=$prestasi->nis") ?>">Edit</a>
+                            <a class="btn" style="color: white;" href="<?= base_url("Teacher/edit_ekskul?nis=$extra->nis") ?>">Edit</a>
                           </td>
                         </tr>
                       <?php endforeach; ?>
