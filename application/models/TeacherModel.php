@@ -13,7 +13,7 @@ class TeacherModel extends CI_Model
     return $this->db->get("siswa")->result();
   }
  public function get_ekskul(){
-    return $this->db->query("SELECT s.*, e.* FROM siswa s, extra e WHERE s.nis = e.nis")->result();
+    return $this->db->query("SELECT s.*, e.*, ek.* FROM siswa s, extra e, ekskul ek WHERE s.nis = e.nis AND e.id_ekskul=ek.id_ekskul")->result();
   }
   public function get_siswa_spesifik($nis){
     return $this->db->where('nis', $nis)->get("siswa")->row();
@@ -56,7 +56,7 @@ class TeacherModel extends CI_Model
   public function get_prestasi_siswa(){
     return $this->db->query("
       SELECT
-        s.nama, s.kelas, p.kegiatan, p.keterangan, p.catatan_khusus, s.nis
+        s.nama, s.kelas, p.ekskul, p.ikut_serta, p.catatan_khusus, s.nis
       FROM
         siswa s, prestasi p
       WHERE
@@ -130,29 +130,31 @@ class TeacherModel extends CI_Model
   }
 
  public function input_ekskul($nis, $deskripsi, $jenis_ekskul ,$nilai_ex){
-    $count = $this->db->where("nis", $nis)->get("extra")->num_rows();
+    $count = $this->db->where("nis", $nis)->where("id_ekskul", $jenis_ekskul)->get("extra")->num_rows();
     if($count > 0){
+      // echo "if";die;
       return $this->db->where("nis", $nis)->update("extra", [
         "deskripsi_ex" => $deskripsi,
-        "jenis_extra" => $jenis_ekskul,
+        "id_ekskul" => $jenis_ekskul,
         "nilai_ex"=>$nilai_ex
       ]);
     }
     else {
       return $this->db->insert("extra", [
+        "nis" => $nis,
         "deskripsi_ex" => $deskripsi,
-        "jenis_extra" => $jenis_ekskul,
+        "id_ekskul" => $jenis_ekskul,
               "nilai_ex"=>$nilai_ex
       ]);
     }
   }
 
    public function update_ekskul_spesifik($nis, $deskripsi_ex, $jenis_extra ,$nilai_ex){
-    return $this->db->where('nis', $nis)
+    return $this->db->where('nis', $nis)->where("jenis_extra", $jenis_ekstra)
       ->update("extra", [
         'nis' => $nis,
         'deskripsi_ex' => $deskripsi_ex,
-        'jenis_extra' => $jenis_extra,
+        'id_ekskul' => $jenis_extra,
         'nilai_ex' => $nilai_ex
       ]
     );
@@ -191,11 +193,10 @@ public function update_deskripsip_spesifik($nis, $id_mapel, $deskripsi_k3){
           WHERE d.nis = s.nis AND d.id_mapel = m.id_mapel")->result();
   }
 
-  public function hapus_deskripsip_spesifik($nis, $idmapel ,$deskripsi_k3){
+  public function hapus_deskripsip_spesifik($nis, $idmapel){
     $delete = $this->db->where('nis', $nis)
                     ->where('id_mapel', $idmapel)
-                    ->where('deskripsi_k3',$deskripsi_k3)
-                    ->delete('deskripsi_k3');
+                    ->delete('deskripsik3');
     if($this->db->affected_rows() < 1){
       return false;
     } else {
@@ -250,6 +251,16 @@ public function input_deskripsik($nis, $id_mapel, $deskripsi_k4){
     }
   }
 
+  public function hapus_deskripsik_spesifik($nis, $idmapel){
+    $delete = $this->db->where('nis', $nis)
+                    ->where('id_mapel', $idmapel)
+                    ->delete('deskripsik4');
+    if($this->db->affected_rows() < 1){
+      return false;
+    } else {
+      return true;
+    }
+  }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    public function insert_deskripsi_siswa_spesifik($nis, $predikat_sosial, $deskripsi_sosial, $deskripsi_spiritual ,$predikat_spiritual){
     return $this->db->insert("deskripsi1", [
@@ -362,16 +373,16 @@ public function input_deskripsi_siswa($nis, $predikat_sosial, $deskripsi_sosial,
     $count = $this->db->where("nis", $nis)->get("prestasi")->num_rows();
     if($count > 0){
       return $this->db->where("nis", $nis)->update("prestasi", [
-        "kegiatan" => $kegiatan,
-        "keterangan" => $keterangan,
+        "ekskul" => $kegiatan,
+        "ikut_serta" => $keterangan,
         "catatan_khusus" => $ck
       ]);
     }
     else {
       return $this->db->insert("prestasi", [
         "nis" => $nis,
-        "kegiatan" => $kegiatan,
-        "keterangan" => $keterangan,
+        "ekskul" => $kegiatan,
+        "ikut_serta" => $keterangan,
         "catatan_khusus" => $ck
       ]);
     }
@@ -381,8 +392,8 @@ public function input_deskripsi_siswa($nis, $predikat_sosial, $deskripsi_sosial,
     return $this->db->where('nis', $nis)
       ->update("prestasi", [
         'nis' => $nis,
-        'kegiatan' => $kegiatan,
-        'keterangan' => $keterangan,
+        'ekskul' => $kegiatan,
+        'ikut_serta' => $keterangan,
         'catatan_khusus' => $catatan_khusus
         
       ]
@@ -469,4 +480,15 @@ public function get_catatan_spesifik($nis){
         g.id_mapel = m.id_mapel
     ")->result();
   }
+
+  public function hapus_deskripsi_siswa($nis){
+    $delete = $this->db->where('nis', $nis)
+                    ->delete('deskripsi1');
+    if($this->db->affected_rows() < 1){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 }

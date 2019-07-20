@@ -167,4 +167,20 @@ return false;
   public function get_mapel(){
     return $this->db->get("mata_pelajaran")->result(); 
   }
+
+  public function getAllEkskulByNis($nis){
+    return $this->db->query("SELECT e.nis, e.deskripsi_ex, (e.id_ekskul) AS idExtra, e.nilai_ex, ek.nama_eks FROM extra e, ekskul ek WHERE e.nis=$nis AND e.id_ekskul = ek.id_ekskul ORDER BY e.id_ekskul ASC")->result_array();
+  }
+  public function getPrestasiByNis($nis){
+    return $this->db->where("nis", $nis)->get("prestasi")->row();
+  }
+  public function getAbsenByNis($nis){
+    return $this->db->where("nis", $nis)->get("absen")->row();
+  }
+  public function getCatatanWkByNis($nis){
+    return $this->db->where("nis", $nis)->get("catatan_walikelas")->row();
+  }
+  public function getDeskripsiTambahanByNis($nis){
+    return $this->db->where("nis", $nis)->get("deskripsi1")->row();
+  }
 }
