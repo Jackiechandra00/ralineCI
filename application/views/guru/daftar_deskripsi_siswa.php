@@ -207,30 +207,40 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                      <th class="text-center">
+                      <tr>
+                      <th rowspan="2" class="text-center">
                         Nama
                       </th>
-                      <th class="text-center">
+                      <th rowspan="2" class="text-center">
                         Kelas
                       </th>
-                      <th class="text-center">
+                      <th rowspan="2" class="text-center">
                         Deskripsi Sosial
                       </th>   
-                      <th class="text-center">
+                      <th rowspan="2"class="text-center">
                         Predikat Sosial                   
                       </th>
                       
                       
-                      <th class="text-center">
+                      <th rowspan="2" class="text-center">
                         Deskripsi Spiritual
                       </th>
-                      <th class="text-center">
+                      <th rowspan="2" class="text-center">
                         Predikat Spiritual
                       </th>
                       
-                      <th class="text-center">
+                      <th colspan="2" class="text-center">
                         Aksi
                       </th>
+                      </tr>
+                      <tr>
+                        <th class="text-center">
+                          Edit
+                        </th>
+                        <th class="text-center">
+                          Hapus
+                        </th>
+                      </tr>
                     </thead>
                     <tbody>
                      <!--  <?php var_dump($ekskull); ?> -->
@@ -258,6 +268,10 @@
                            
                           <td class="text-center">
                             <a class="btn" style="color: white;" href="<?= base_url("Teacher/edit_deskripsi_siswa?nis=$deskripsi->nis") ?>">Edit</a>
+                          </td>
+
+                          <td class="text-center">
+                            <a class="btn btn-danger" style="color: white;" href="<?= base_url("Teacher/hapus_deskripsi_siswa?nis=$deskripsi->nis") ?>">Hapus</a>
                           </td>
                         </tr>
                       <?php endforeach; ?>

@@ -239,7 +239,7 @@
                             <?= $extra->deskripsi_ex ?>  
                           </td>
                           <td class="text-center">
-                            <?= $extra->jenis_extra ?>
+                            <?= $extra->nama_eks ?>
                           </td>
                           <td class="text-center">
                             <?= $extra->nilai_ex ?>

@@ -206,22 +206,28 @@
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
-                    <thead class=" text-primary">
-                      <th class="text-center">
-                        Nama
-                      </th>
-                      <th class="text-center">
-                        Kelas
-                      </th>
-                      <th class="text-center">
-                        Mapel                    
-                      </th>
-                      <th class="text-center">
-                        Deskripsi
-                      </th>
-                      <th class="text-center">
-                        Aksi
-                      </th>
+                   <thead class=" text-primary">
+                      <tr>
+                        <th rowspan="2" class="text-center">
+                          Nama
+                        </th>
+                        <th rowspan="2" class="text-center">
+                          Kelas
+                        </th>
+                        <th rowspan="2" class="text-center">
+                          Mapel                    
+                        </th>
+                        <th rowspan="2" class="text-center">
+                          Deskripsi
+                        </th>
+                        <th colspan="2" class="text-center">
+                          Aksi
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="text-center">Edit</th>
+                        <th class="text-center">Hapus</th>
+                      </tr>
                     </thead>
                     <tbody>
                      <!--  <?php var_dump($ekskull); ?> -->
@@ -242,6 +248,9 @@
                            
                           <td class="text-center">
                             <a class="btn" style="color: white;" href="<?= base_url("Teacher/edit_deskripsik?nis=$deskripsi->nis") ?>">Edit</a>
+                          </td>
+                           <td class="text-center">
+                            <a class="btn btn-danger" style="color: white;" href="<?= base_url("Teacher/hapus_deskripsip?nis=$deskripsi->nis&id_mapel=$deskripsi->id_mapel") ?>">Hapus</a>
                           </td>
                         </tr>
                       <?php endforeach; ?>

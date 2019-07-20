@@ -96,8 +96,7 @@
               <p>Ekskul</p>
             </a>
           </li>
-          <li 
-          >
+          <li>
             <a href="<?php echo base_url("Teacher/deskripsi_siswa"); ?>">
               <i class="now-ui-icons  files_single-copy-04"></i>
               <p>Deskripsi Siswa</p>

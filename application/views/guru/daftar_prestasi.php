@@ -235,10 +235,10 @@
                             <?= $prestasi->kelas ?>  
                           </td>
                           <td class="text-center">
-                            <?= $prestasi->kegiatan ?>  
+                            <?= $prestasi->ekskul ?>  
                           </td>
                           <td class="text-center">
-                            <?= $prestasi->keterangan ?>
+                            <?= $prestasi->ikut_serta ?>
                           </td>
                           <td class="text-center">
                             <?= $prestasi->catatan_khusus ?>  

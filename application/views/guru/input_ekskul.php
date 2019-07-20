@@ -96,6 +96,12 @@
               <p>Ekskul</p>
             </a>
           </li>
+           <li>
+            <a href="<?php echo base_url("Teacher/deskripsi_siswa"); ?>">
+              <i class="now-ui-icons  files_single-copy-04"></i>
+              <p>Deskripsi Siswa</p>
+            </a>
+          </li>
           <li>
             <a href="<?php echo base_url("Teacher/deskripsip"); ?>">
               <i class="now-ui-icons  business_bank"></i>
@@ -230,15 +236,15 @@
                         <label>Jenis Ekstrakurikuler</label>
                         <select class="custom-select form-control" name="jenis_ekstra" required>
                           <option value="">Pilih Ekstrakulikuler</option>
-                            <option value="TATA BOGA">TATA BOGA</option>
-                            <option value="RENANG">RENANG</option>
-                            <option value="ARABIC CLUB">ARABIC CLUB</option>
-                            <option value="TAKLIM">TAKLIM</option>
-                            <option value="JURNALISTIK">JURNALISTIK</option>
-                            <option value="SAINS CLUB">SAINS CLUB</option>
-                            <option value="BELADIRI">BELADIRI</option>
-                            <option value="FUTSAL">FUTSAL</option>
-                            <option value="PRAMUKA">PRAMUKA</option>
+                            <option value="1">TATA BOGA</option>
+                            <option value="2">RENANG</option>
+                            <option value="3">ARABIC CLUB</option>
+                            <option value="4">TAKLIM</option>
+                            <option value="5">JURNALISTIK</option>
+                            <option value="6">SAINS CLUB</option>
+                            <option value="7">BELADIRI</option>
+                            <option value="8">FUTSAL</option>
+                            <option value="9">PRAMUKA</option>
                         </select>
                       </div>
                     </div>
