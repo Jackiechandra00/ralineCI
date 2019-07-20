@@ -498,9 +498,8 @@ class Teacher extends CI_Controller {
 	public function hapus_deskripsip(){
 		$nis = $this->input->get('nis');
 		$idmapel = $this->input->get('id_mapel');
-		$deskripsi_k3=$this->input->get('deskripsi_k3');
 		$this->load->model('TeacherModel');
-		if($this->TeacherModel->hapus_deskripsip_spesifik($nis, $idmapel, $deskripsi_k3)){
+		if($this->TeacherModel->hapus_deskripsip_spesifik($nis, $idmapel)){
 			redirect("Teacher/daftar_deskripsip?nis=$nis");
 		} else {
 			$this->session->set_flashdata('pesanerror', 'Gagal menghapus nilai.');
@@ -585,6 +584,20 @@ class Teacher extends CI_Controller {
 		];
 		$this->load->view('guru/daftar_deskripsik', $data);
 	}
+
+	public function hapus_deskripsik(){
+		$nis = $this->input->get('nis');
+		$idmapel = $this->input->get('id_mapel');
+		$this->load->model('TeacherModel');
+		if($this->TeacherModel->hapus_deskripsik_spesifik($nis, $idmapel)){
+			redirect("Teacher/daftar_deskripsik?nis=$nis");
+		} else {
+			$this->session->set_flashdata('pesanerror', 'Gagal menghapus nilai.');
+			// var_dump($this->session->flashdata('pesanerror'));
+			redirect("Teacher/daftar_deskripsik?nis=$nis");
+		}
+	}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public function deskripsi_siswa()
@@ -655,6 +668,18 @@ class Teacher extends CI_Controller {
 				
 			];
 			$this->load->view('guru/edit_deskripsi_siswa', $data);
+		}
+	}
+	public function hapus_deskripsi_siswa()
+	{
+		$nis = $this->input->get("nis");
+		$this->load->model("TeacherModel");
+
+		if($this->TeacherModel->hapus_deskripsi_siswa($nis)){
+			redirect("Teacher/deskripsi_siswa");
+		} else {
+			$this->session->flashdata('pesanerror', 'Gagal menghapus deskripsi siswa.');
+			redirect("Teacher/daftar_deskripsi_siswa?nis=$nis");
 		}
 	}
 	// public function edit_deskripsi_siswa()

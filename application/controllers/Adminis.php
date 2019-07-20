@@ -214,7 +214,12 @@ class Adminis extends CI_Controller {
 		$data = [
 			"siswa" => $this->AdminModel->get_siswa_spesifik($nis),
 			"nilai" => $this->AdminModel->get_nilai_spesifik($nis),
-			"thn" => $this->AdminModel->get_tahun_akademik_spesifik($nis)
+			"thn" => $this->AdminModel->get_tahun_akademik_spesifik($nis),
+			"ekskul" => $this->AdminModel->getAllEkskulByNis($nis),
+			"prestasi" => $this->AdminModel->getPrestasiByNis($nis),
+			"absen" => $this->AdminModel->getAbsenByNis($nis),
+			"catatanWk" => $this->AdminModel->getCatatanWkByNis($nis),
+			"desk" => $this->AdminModel->getDeskripsiTambahanByNis($nis)
 		];
 		$this->load->view("admin/raport", $data);
 	}
