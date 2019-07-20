@@ -21,7 +21,7 @@
 	<div class="row">
 		<div class="container" style="border-width: 2px; border-color:#d6d6c2; margin-left: 0px; margin-right: 20px; ">
 			<div class="row">
-				<div style="margin-left: 0px; padding: 10px 10px 10px 10px; margin-top: 30px;">
+				<div style="margin-left: 0px; padding: 10px 10px 10px 10px; margin-top: 70px;">
 					<table style="width: 370px;">
 						<tr>
 							<td><b>Nama Sekolah</b></td>
@@ -40,7 +40,147 @@
 						</tr>
 					</table>
 				</div>
-				<div style="margin-left: 100px;  padding: 10px 10px 10px 10px; margin-top: 30px;" >
+				<div style="margin-left: 100px;  padding: 10px 10px 10px 10px; margin-top: 70px;" >
+					<table style="width: 370px;">
+						<tr>
+							<td><b>Kelas</b></td>
+							<td>:</td>
+							<td> <?= $siswa->kelas ?></td>
+						</tr>
+						<tr>
+							<td><b>Penilaian</b></td>
+							<td>:</td>
+							<td> UAS</td>
+						</tr>
+						<tr>
+							<td><b>Tahun Pelajaran</b></td>
+							<td>:</td>
+							<td> <?= $thn->tahun_akademik ?></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div style="margin-top: 70px;">
+		<h5 style="color: #2F669F;"><b></b></h5>
+
+		<table border="2" style="width:800px; text-align: center;">
+			<tr>
+				<td rowspan="2" style="width: 500px; text-align: center; "><br><br><br><br><br><B>CAPAIAN HASIL BELAJAR</B><br><br><br><br><br><br>	</td>
+			</tr>
+		</table>
+		</div>
+
+
+
+	<div style="margin-top: 50px;">
+		<h5 style="color: #2F669F;"><b>Sikap Sosial</b></h5>
+
+		<table border="2" style="width:800px; text-align: center;">
+			<tr>
+				<td style="width: 100px; text-align: center; font-weight: 700">
+					<?php if(isset($desk)): ?>
+						<?= $desk->predikat_sosial ?>
+					<?php endif; ?>
+				</td>
+				<td rowspan="2" style="width: 500px; text-align: center; font-weight: 700">
+					<br><br><br><br>
+					<?php if(isset($desk)): ?>
+						<?= $desk->deskripsi_sosial ?>
+					<?php endif; ?>
+					<br><br><br><br>
+				</td>
+			</tr>
+		</table>
+		</div>
+
+	<div style="margin-top: 50px;">
+		<h5 style="color: #2F669F;"><b>Sikap Spiritual</b></h5>
+
+		<table border="2" style="width:800px; text-align: center;">
+			<tr>
+				<td style="width: 100px; text-align: center; font-weight: 700">
+					<?php if(isset($desk)): ?>
+						<?= $desk->predikat_spiritual ?>
+					<?php endif; ?>
+				</td>
+				<td rowspan="2" style="width: 500px; text-align: center; font-weight: 700">
+					<br><br><br><br>
+					<?php if(isset($desk)): ?>
+						<?= $desk->deskripsi_spiritual ?>
+					<?php endif; ?>
+					<br><br><br><br>
+				</td>
+			</tr>
+		</table>
+		</div>
+	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div style="margin-top: 50px;">
+	<table border="2" style="width:800px; text-align: center;">
+			<tr>
+				<td rowspan="2"><b>KKM</b></td>
+				<td colspan="4"><b>Predikat</b></td>
+				
+				
+			</tr>
+			<tr>
+				<td style="width: 700px; text-align: center;"><b>K=KURANG</b></td>
+				<td style="width: 700px; text-align: center;"><b>C=CUKUP/SEDANG</b></td>
+				<td style="width: 700px; text-align: center;"><b>B=BAIK</b></td>				
+				<td style="width: 700px; text-align: center;"><b>SB=SANGAT BAIK</b></td>		
+			</tr>
+			
+			<tr>
+				<td align="center">75</td>
+				<td><	75</td>
+				<td>76 S/D 83</td>
+				<td>84 S/D 93</td>
+				<td>94 S/D 100</td>
+			</tr>
+			
+			<tr>
+				<td align="center">70</td>
+				<td>< 70</td>
+				<td>71 S/D 80</td>
+				<td>81 S/D 90</td>
+				<td>91 S/D 100</td>
+			</tr>
+			
+			</th></tr></table>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<div style="margin-top: 300px;"></div>
+<div class="container" style="border-width: 1px;">
+	<div class="row">
+		<div class="container" style="border-width: 2px; border-color:#d6d6c2; margin-left: 0px; margin-right: 20px; ">
+			<div class="row">
+				<div style="margin-left: 0px; padding: 10px 10px 10px 10px; margin-top: 50px;">
+					<table style="width: 370px;">
+						<tr>
+							<td><b>Nama Sekolah</b></td>
+							<td>:</td>
+							<td> SMA ISLAM ULUN NUHA</td>
+						</tr>
+						<tr>
+							<td><b>Nama Siswa</b></td>
+							<td>:</td>
+							<td> <?= $siswa->nama ?></td>
+						</tr>
+						<tr>
+							<td><b>NIS/NISN</b></td>
+							<td>:</td>
+							<td> <?= $siswa->nis ?>/<?= $siswa->nisn ?></td>
+						</tr>
+					</table>
+				</div>
+				<div style="margin-left: 100px;  padding: 10px 10px 10px 10px; margin-top: 50px;" >
 					<table style="width: 370px;">
 						<tr>
 							<td><b>Kelas</b></td>
@@ -227,6 +367,26 @@
 
 			</tr>
 		
+		</th></tr></table>
+	
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>	
+		<table border="2" style="width:800px; text-align: center;">
+			<tr>
+				<th rowspan="2">No.</td>
+				<td rowspan="2" style="width: 300px; text-align: center;"><b>Mata Pelajaran</b></td>
+				<td rowspan="2"><b>KKM</b></td>
+				<td colspan="3"><b>Pengetahuan</b></td>
+				
+				
+			</tr>
+			<tr>
+				<td><b>&nbsp;&nbsp;Nilai&nbsp;&nbsp;</b></td>
+				<td><b>&nbsp;Predikat&nbsp;</b></td>
+				<td style="width: 700px; text-align: center;"><b>Deskripsi</b></td>				
+				
+			</tr>
+		
 			<tr>
 				<td colspan="6" align="left" style="padding-left: 10px;"><b>Kelompok B (Umum)</b></td>
 			</tr>
@@ -261,7 +421,7 @@
 				<td><?= $nilai[18]["k3"] ?></td>
 				<td><?= $nilai[18]["predikat"] ?></td>
 				<td><?= $nilai[18]["deskripsi_k3"] ?></td>
-			</tr>
+			</tr><br>
 			<tr>
 				<td colspan="6" align="left" style="padding-left: 10px;"><b>Kelompok C (Peminatan)</b></td>
 			</tr>
@@ -281,6 +441,7 @@
 				<td><?= $nilai[20]["predikat"] ?></td>
 				<td><?= $nilai[20]["deskripsi_k3"] ?></td>s
 			</tr>
+
 			<tr>
 				<td>3.</td>
 				<td align="left">Fisika</td>
@@ -314,38 +475,38 @@
 			</tr>
 			<tr>
 				<td align="left">&nbsp; b. Sharaf</td>
-				<td><?= $nilai[24]["kkm"] ?></td>
-				<td><?= $nilai[24]["k3"] ?></td>
-				<td><?= $nilai[24]["predikat"] ?></td>
-				<td><?= $nilai[24]["deskripsi_k3"] ?></td>
-			</tr>
-			<tr>
-				<td align="left">&nbsp; c. Mudahatsah</td>
 				<td><?= $nilai[25]["kkm"] ?></td>
 				<td><?= $nilai[25]["k3"] ?></td>
 				<td><?= $nilai[25]["predikat"] ?></td>
 				<td><?= $nilai[25]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
-				<td align="left">&nbsp; d. Balaghah</td>
+				<td align="left">&nbsp; c. Mudahatsah</td>
 				<td><?= $nilai[26]["kkm"] ?></td>
 				<td><?= $nilai[26]["k3"] ?></td>
 				<td><?= $nilai[26]["predikat"] ?></td>
 				<td><?= $nilai[26]["deskripsi_k3"] ?></td>
 			</tr>
-				<tr>
-				<td align="left">&nbsp; e. Khat-Imlah</td>
+			<tr>
+				<td align="left">&nbsp; d. Balaghah</td>
 				<td><?= $nilai[27]["kkm"] ?></td>
 				<td><?= $nilai[27]["k3"] ?></td>
 				<td><?= $nilai[27]["predikat"] ?></td>
 				<td><?= $nilai[27]["deskripsi_k3"] ?></td>
 			</tr>
-			<tr>
-				<td align="left">&nbsp; f. Muthola'ah</td>
+				<tr>
+				<td align="left">&nbsp; e. Khat-Imlah</td>
 				<td><?= $nilai[28]["kkm"] ?></td>
 				<td><?= $nilai[28]["k3"] ?></td>
 				<td><?= $nilai[28]["predikat"] ?></td>
 				<td><?= $nilai[28]["deskripsi_k3"] ?></td>
+			</tr>
+			<tr>
+				<td align="left">&nbsp; f. Muthola'ah</td>
+				<td><?= $nilai[29]["kkm"] ?></td>
+				<td><?= $nilai[29]["k3"] ?></td>
+				<td><?= $nilai[29]["predikat"] ?></td>
+				<td><?= $nilai[29]["deskripsi_k3"] ?></td>
 			</tr>
 			<tr>
 				<td colspan="6" align="left" style="padding-left: 10px;"><b>Kelompok D (Keunggulan Sekolah)</b></td>
@@ -353,10 +514,10 @@
 			<tr>
 				<td>1</td>
 				<td align="left">Tahfiz</td>
-				<td><?= $nilai[29]["kkm"] ?></td>
-				<td><?= $nilai[29]["k3"] ?></td>
-				<td><?= $nilai[29]["predikat"] ?></td>
-				<td><?= $nilai[29]["deskripsi_k3"] ?></td>
+				<td><?= $nilai[30]["kkm"] ?></td>
+				<td><?= $nilai[30]["k3"] ?></td>
+				<td><?= $nilai[30]["predikat"] ?></td>
+				<td><?= $nilai[30]["deskripsi_k3"] ?></td>
 			</tr>
 		<!-- 	<tr>
 				<td rowspan="3">2</td>
@@ -390,6 +551,7 @@
 		<!-- <baru> -->
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div style="margin-top: 300px;">
 <div class="container" style="border-width: 1px;">
 	<div class="row">
 		<div class="container" style="border-width: 2px; border-color:#d6d6c2; margin-left: 0px; margin-right: 20px; ">
@@ -634,7 +796,24 @@
 				<td><?= $nilai[18]["k4"] ?></td>
 				<td><?= $nilai[18]["predikat"] ?></td>
 				<td><?= $nilai[18]["deskripsi_k4"] ?></td>
+			</tr></th></tr></table>
+
+			<br><br><br><br><br><br><br><br><br>	
+		<table border="2" style="width:800px; text-align: center;">
+			<tr>
+				<th rowspan="2">No.</td>
+				<td rowspan="2" style="width: 300px; text-align: center;"><b>Mata Pelajaran</b></td>
+				<td rowspan="2"><b>KKM</b></td>
+				<td colspan="3"><b>Keterampilan</b></td>
+				
 			</tr>
+			<tr>
+				<td><b>&nbsp;&nbsp;Nilai&nbsp;&nbsp;</b></td>
+				<td><b>&nbsp;Predikat&nbsp;</b></td>
+				<td style="width: 700px; text-align: center;"><b>Deskripsi</b></td>				
+				
+			</tr>
+		
 			<tr>
 				<td colspan="6" align="left" style="padding-left: 10px;"><b>Kelompok C (Peminatan)</b></td>
 			</tr>
@@ -762,6 +941,7 @@
 
 			
 </th></tr></table></div>
+<div style="margin-top: 50px"></div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <div class="container" style="border-width: 1px;">
 	<div class="row">
@@ -827,8 +1007,16 @@
 			<tr>
 				<td rowspan="1">1.</td>
 				<td align="left"> &nbsp;TATA BOGA</td>
-				<td></td>
-				<td></td>
+				<td>
+					<?php if (isset($ekskul[0])): ?>
+						<?php echo $ekskul[0]["nilai_ex"] ?>
+					<?php endif; ?>
+				</td>
+				<td>
+					<?php if (isset($ekskul[0])): ?>
+						<?php echo $ekskul[0]["deskripsi_ex"] ?>
+					<?php endif; ?>
+				</td>
 			</tr>
 			<tr>
 				<td>2.</td>
@@ -898,23 +1086,36 @@
 			<tr>
 				<td rowspan="1">1.</td>
 				<td align="left"> &nbsp;Ekstrakulikuler</td>
-				<td></td>
+				<td>
+					<?php if(isset($prestasi)): ?>
+						<?= $prestasi->ekskul ?>
+					<?php endif; ?>
+				</td>
 			</tr>
 			<tr>
 				<td>2.</td>
 				<td align="left">&nbsp;Keikutsertaan dalam Organisasi / Kegiatan</td>
-				<td></td>
+				<td>
+					<?php if(isset($prestasi)): ?>
+						<?= $prestasi->ikut_serta ?>
+					<?php endif; ?>
+				</td>
 			</tr>
 			<tr>
 				<td>3.</td>
 				<td align="left">&nbsp;Catatan Khusus Lainnya</td>
-				<td></td>
+				<td>
+					<?php if(isset($prestasi)): ?>
+						<?= $prestasi->catatan_khusus ?>
+					<?php endif; ?>
+				</td>
 			</tr>
 			</th>
 			</tr>
 			</table>	
 </div>
-<div style="margin-top: 30px;">
+<br><br>
+<div style="margin-top: 250px;">
 		<h5 style="color: #2F669F;"><b>Ketidakhadiran</b></h5>
 
 		<table border="2" style="width:700px; text-align: center;">
@@ -924,22 +1125,34 @@
 			</tr>
 			<tr>
 			
-				<td style="width: 500px; text-align: center;"><b>Keterangan</b></td>			
+				<td style="width: 500px; text-align: center;"><b>Jumlah</b></td>			
 			</tr>
 			<tr>
 				<td rowspan="1">1.</td>
 				<td align="left"> &nbsp;Sakit</td>
-				<td></td>
+				<td>
+					<?php if(isset($absen)): ?>
+						<?= $absen->sakit ?>
+					<?php endif; ?>
+				</td>
 			</tr>
 			<tr>
 				<td>2.</td>
 				<td align="left">&nbsp;Izin</td>
-				<td></td>
+				<td>
+					<?php if(isset($absen)): ?>
+						<?= $absen->izin ?>
+					<?php endif; ?>
+				</td>
 			</tr>
 			<tr>
 				<td>3.</td>
 				<td align="left">&nbsp;Tanpa Keterangan</td>
-				<td></td>
+				<td>
+					<?php if(isset($absen)): ?>
+						<?= $absen->alpha ?>
+					<?php endif; ?>
+				</td>
 			</tr>
 			</th>
 			</tr>
@@ -950,8 +1163,14 @@
 
 		<table border="2" style="width:700px; text-align: center;">
 			<tr>
-				
-				<td rowspan="2" style="width: 300px; text-align: center; "><br><br><br><br></td>
+				<td rowspan="2" style="width: 300px; text-align: center; ">
+					<br>
+					<?php if(isset($catatanWk)): ?>
+						<?= $catatanWk->keterangan ?>	
+					<?php endif; ?>
+					<br>
+					<br>
+				</td>
 			</tr>
 		</table>
 		</div>
